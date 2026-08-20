@@ -1,0 +1,4014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#082b55">
+
+    <title>IIUI Portal - Feedback</title>
+
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =========================
+         MATERIAL ICONS
+    ========================== -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0..200"
+          rel="stylesheet">
+
+
+<style>
+
+/* =====================================
+   ROOT
+===================================== */
+
+:root {
+
+    --sidebar-width: 212px;
+
+    --navy: #06214a;
+    --navy2: #062c58;
+
+    --blue: #176fdc;
+    --light-blue: #55a9ff;
+
+    --white: #ffffff;
+
+}
+
+
+/* =====================================
+   GLOBAL
+===================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    background: #020c19;
+
+    color: white;
+
+    overflow-x: hidden;
+
+}
+
+
+a {
+
+    color: inherit;
+    text-decoration: none;
+
+}
+
+
+button,
+input,
+select,
+textarea {
+
+    font: inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: .75;
+
+}
+
+
+.material-symbols-outlined {
+
+    font-variation-settings:
+
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+
+}
+
+
+/* =====================================
+   LOADER
+===================================== */
+
+.loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: #062149;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    transition:
+
+        opacity .5s ease,
+        visibility .5s ease;
+
+}
+
+
+.loader.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.loader-ring {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(255,255,255,.15);
+
+    border-top-color: #55a9ff;
+
+    border-right-color: #e8c24f;
+
+    animation:
+        spin 1s linear infinite;
+
+}
+
+
+.loader-text {
+
+    text-align: center;
+
+}
+
+
+.loader-text strong {
+
+    display: block;
+
+    letter-spacing: 3px;
+
+    font-size: 14px;
+
+}
+
+
+.loader-text small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #a9bed8;
+
+}
+
+
+@keyframes spin {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =====================================
+   SIDEBAR
+===================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            180deg,
+            #06214a,
+            #062c58
+        );
+
+    padding: 17px 9px;
+
+    overflow-y: auto;
+
+    box-shadow:
+        10px 0 28px
+        rgba(0,0,0,.13);
+
+    transition:
+        transform .3s ease,
+        width .3s ease;
+
+}
+
+
+/* =====================================
+   BRAND
+===================================== */
+
+.brand {
+
+    height: 84px;
+
+    padding: 4px 10px 18px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.12);
+
+}
+
+
+.brand-logo {
+
+    width: 43px;
+
+    height: 54px;
+
+    flex: none;
+
+    border:
+        2px solid #e8c24f;
+
+    border-radius:
+        48% 48% 50% 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #e8c24f;
+
+    font-family: Georgia, serif;
+
+    font-weight: 700;
+
+    font-size: 9px;
+
+}
+
+
+.brand strong {
+
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    line-height: 1.05;
+
+}
+
+
+.brand small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: Georgia, serif;
+
+    font-size: 8px;
+
+    line-height: 1.3;
+
+}
+
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
+.nav {
+
+    padding: 16px 0;
+
+    display: grid;
+
+    gap: 3px;
+
+}
+
+
+.nav a {
+
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 12px;
+
+    border-radius: 10px;
+
+    color: #eef5ff;
+
+    font-size: 13px;
+
+    transition: .2s ease;
+
+}
+
+
+.nav a:hover {
+
+    background:
+        rgba(255,255,255,.08);
+
+    transform:
+        translateX(2px);
+
+}
+
+
+.nav a.active {
+
+    background:
+        linear-gradient(
+            90deg,
+            #176fdc,
+            #1666cb
+        );
+
+    box-shadow:
+        0 6px 16px
+        rgba(0,95,205,.24);
+
+}
+
+
+.nav .material-symbols-outlined {
+
+    font-size: 20px;
+
+}
+
+
+/* =====================================
+   ACADEMIC PROGRESS
+===================================== */
+
+.academic {
+
+    margin: 10px 4px 0;
+
+    padding: 15px 9px 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.academic h3 {
+
+    font-size: 12px;
+
+    margin-bottom: 11px;
+
+}
+
+
+.ring {
+
+    width: 90px;
+
+    height: 90px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        conic-gradient(
+            #2e91ff 0 78%,
+            rgba(255,255,255,.10) 78%
+        );
+
+    position: relative;
+
+}
+
+
+.ring::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    background: #082b55;
+
+    border-radius: 50%;
+
+}
+
+
+.ring span {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+}
+
+
+.academic p {
+
+    margin: 9px 0 2px;
+
+    font-size: 10px;
+
+}
+
+
+.academic strong {
+
+    font-size: 16px;
+
+}
+
+
+.progress-button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    padding: 8px;
+
+    background: #124486;
+
+    color: white;
+
+    font-size: 10px;
+
+}
+
+
+.progress-button:hover {
+
+    background: #1762bd;
+
+}
+
+
+/* =====================================
+   MOBILE BAR
+===================================== */
+
+.mobilebar {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+
+    z-index: 200;
+
+    background: #062852;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 12px;
+
+}
+
+
+.mobilebar button {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    color: white;
+
+}
+
+
+.mobilebar strong {
+
+    font-size: 10px;
+
+    letter-spacing: .08em;
+
+}
+
+
+/* =====================================
+   MAIN
+===================================== */
+
+main {
+
+    margin-left: var(--sidebar-width);
+
+    min-height: 100vh;
+
+    position: relative;
+
+}
+
+
+/* =====================================
+   TOPBAR
+===================================== */
+
+.topbar {
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 0 28px;
+
+    position: relative;
+
+    z-index: 50;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2f8ed0,
+            #55a5df
+        );
+
+}
+
+
+.menu-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+/* =====================================
+   SEARCH
+===================================== */
+
+.search {
+
+    width: 292px;
+
+    height: 38px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.43);
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 13px;
+
+    background:
+        rgba(255,255,255,.06);
+
+}
+
+
+.search input {
+
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 11px;
+
+}
+
+
+.search input::placeholder {
+
+    color: white;
+
+}
+
+
+/* =====================================
+   TOP ACTIONS
+===================================== */
+
+.top-actions {
+
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.top-icon {
+
+    position: relative;
+
+    width: 37px;
+
+    height: 37px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.top-icon:hover {
+
+    background:
+        rgba(255,255,255,.13);
+
+}
+
+
+.top-icon i {
+
+    position: absolute;
+
+    right: -1px;
+
+    top: -1px;
+
+    width: 17px;
+
+    height: 17px;
+
+    border:
+        2px solid #55a5df;
+
+    background: #ff4e29;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 8px;
+
+    font-style: normal;
+
+}
+
+
+.profile-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 0;
+
+    margin-left: 6px;
+
+    text-align: left;
+
+}
+
+
+.profile-button img {
+
+    width: 39px;
+
+    height: 39px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid white;
+
+    object-fit: cover;
+
+}
+
+
+.profile-button strong {
+
+    display: block;
+
+    font-size: 11px;
+
+}
+
+
+.profile-button small {
+
+    display: block;
+
+    font-size: 8px;
+
+    margin-top: 2px;
+
+}
+
+
+/* =====================================
+   FEEDBACK PAGE
+===================================== */
+
+.page {
+
+    min-height:
+        calc(100vh - 70px);
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px 20px;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   BACKGROUND
+===================================== */
+
+.background-image {
+
+    position: absolute;
+
+    inset: -8%;
+
+    background-image:
+
+        linear-gradient(
+            135deg,
+            rgba(0,10,30,.82),
+            rgba(0,33,71,.68),
+            rgba(0,10,30,.88)
+        ),
+
+        url("ak.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    animation:
+        backgroundZoom 18s
+        ease-in-out
+        infinite
+        alternate;
+
+    z-index: 0;
+
+}
+
+
+@keyframes backgroundZoom {
+
+    0% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.07);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.14);
+
+    }
+
+}
+
+
+/* =====================================
+   VIGNETTE
+===================================== */
+
+.vignette {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 10%,
+            rgba(0,5,18,.30) 55%,
+            rgba(0,5,18,.86) 100%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================
+   ORBS
+===================================== */
+
+.orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(4px);
+
+    opacity: .35;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+
+.orb-one {
+
+    width: 280px;
+
+    height: 280px;
+
+    background: #1685ff;
+
+    top: -100px;
+
+    left: -80px;
+
+    animation:
+        floatOne 9s
+        ease-in-out
+        infinite;
+
+}
+
+
+.orb-two {
+
+    width: 230px;
+
+    height: 230px;
+
+    background: #00c8ff;
+
+    right: -80px;
+
+    bottom: -60px;
+
+    animation:
+        floatTwo 11s
+        ease-in-out
+        infinite;
+
+}
+
+
+.orb-three {
+
+    width: 150px;
+
+    height: 150px;
+
+    background: white;
+
+    right: 20%;
+
+    top: 10%;
+
+    opacity: .08;
+
+    animation:
+        floatThree 7s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(80px,70px)
+            scale(1.15);
+
+    }
+
+}
+
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+
+        transform:
+            translate(0,0);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-70px,-80px);
+
+    }
+
+}
+
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(40px);
+
+    }
+
+}
+
+
+/* =====================================
+   PARTICLES
+===================================== */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 5px;
+
+    height: 5px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,255,255,.6);
+
+    animation:
+        particleFloat
+        linear
+        infinite;
+
+}
+
+
+.particle:nth-child(1) {
+
+    left: 10%;
+    top: 20%;
+
+    animation-duration: 8s;
+
+}
+
+
+.particle:nth-child(2) {
+
+    left: 20%;
+    top: 70%;
+
+    animation-duration: 11s;
+
+}
+
+
+.particle:nth-child(3) {
+
+    left: 35%;
+    top: 15%;
+
+    animation-duration: 9s;
+
+}
+
+
+.particle:nth-child(4) {
+
+    left: 50%;
+    top: 80%;
+
+    animation-duration: 12s;
+
+}
+
+
+.particle:nth-child(5) {
+
+    left: 65%;
+    top: 25%;
+
+    animation-duration: 10s;
+
+}
+
+
+.particle:nth-child(6) {
+
+    left: 78%;
+    top: 65%;
+
+    animation-duration: 13s;
+
+}
+
+
+.particle:nth-child(7) {
+
+    left: 90%;
+    top: 30%;
+
+    animation-duration: 9s;
+
+}
+
+
+.particle:nth-child(8) {
+
+    left: 45%;
+    top: 45%;
+
+    animation-duration: 15s;
+
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(40px);
+
+        opacity: 0;
+
+    }
+
+    20%,
+    80% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-120px);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================
+   FEEDBACK CONTAINER
+===================================== */
+
+.feedback-container {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    animation:
+        cardEntrance 1s
+        cubic-bezier(.22,1,.36,1);
+
+}
+
+
+@keyframes cardEntrance {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(.94);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================
+   FEEDBACK CARD
+===================================== */
+
+.feedback-card {
+
+    position: relative;
+
+    padding: 42px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.20),
+            rgba(255,255,255,.08)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.45),
+
+        inset 0 1px 0
+        rgba(255,255,255,.25);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   ANIMATED BORDER
+===================================== */
+
+.feedback-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200%;
+
+    height: 200%;
+
+    left: -50%;
+
+    top: -50%;
+
+    background:
+        conic-gradient(
+            transparent,
+            transparent,
+            rgba(36,135,255,.8),
+            transparent,
+            transparent
+        );
+
+    animation:
+        rotateBorder 8s
+        linear
+        infinite;
+
+    z-index: -2;
+
+}
+
+
+.feedback-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(3,20,43,.94),
+            rgba(4,34,65,.88)
+        );
+
+    z-index: -1;
+
+}
+
+
+@keyframes rotateBorder {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+
+.logo-section {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+.logo img {
+
+    width: 90px;
+
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(255,255,255,.75);
+
+    box-shadow:
+        0 0 0 7px
+        rgba(255,255,255,.08),
+
+        0 10px 35px
+        rgba(0,0,0,.4);
+
+    animation:
+        logoFloat 4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-7px)
+            rotate(2deg);
+
+    }
+
+}
+
+
+.logo-section h1 {
+
+    font-family:
+        "Source Serif 4",
+        serif;
+
+    font-size: 29px;
+
+}
+
+
+.logo-section p {
+
+    margin-top: 7px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+.field {
+
+    margin-bottom: 21px;
+
+}
+
+
+.field label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color:
+        rgba(255,255,255,.82);
+
+}
+
+
+.input-wrap {
+
+    min-height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    gap: 11px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.075);
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    transition: .3s ease;
+
+}
+
+
+.input-wrap:focus-within {
+
+    border-color: #3295ff;
+
+    background:
+        rgba(255,255,255,.11);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(32,130,255,.13);
+
+}
+
+
+.input-wrap > span {
+
+    color: #79baff;
+
+    font-size: 21px;
+
+}
+
+
+.input-wrap input,
+.input-wrap select {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+}
+
+
+.input-wrap select option {
+
+    background: #03142b;
+
+    color: white;
+
+}
+
+
+.textarea-wrap {
+
+    padding: 14px 15px;
+
+    align-items: flex-start;
+
+}
+
+
+.input-wrap textarea {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    min-height: 110px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+
+}
+
+
+.input-wrap textarea::placeholder,
+.input-wrap input::placeholder {
+
+    color:
+        rgba(255,255,255,.38);
+
+}
+
+
+/* =====================================
+   ERROR
+===================================== */
+
+.error-msg {
+
+    display: none;
+
+    color: #ff8d8d;
+
+    font-size: 12px;
+
+    margin-top: 6px;
+
+}
+
+
+.field.error .input-wrap {
+
+    border-color: #ff5959;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,89,89,.08);
+
+}
+
+
+.field.error .error-msg {
+
+    display: block;
+
+}
+
+
+/* =====================================
+   SUBMIT BUTTON
+===================================== */
+
+.submit {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #0d5fba,
+            #1687f5,
+            #0d5fba
+        );
+
+    background-size: 200% auto;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,100,220,.3);
+
+    transition: .3s ease;
+
+    animation:
+        buttonGradient 4s
+        linear
+        infinite;
+
+}
+
+
+.submit:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 16px 35px
+        rgba(0,100,220,.45);
+
+}
+
+
+@keyframes buttonGradient {
+
+    to {
+
+        background-position:
+            200% center;
+
+    }
+
+}
+
+
+.scan {
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    animation:
+        scan 3s infinite;
+
+}
+
+
+@keyframes scan {
+
+    0% {
+
+        left: -100%;
+
+    }
+
+    45%,
+    100% {
+
+        left: 150%;
+
+    }
+
+}
+
+
+.btn-text {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer-note {
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size: 13px;
+
+    margin-top: 22px;
+
+    line-height: 1.8;
+
+}
+
+
+.footer-note a {
+
+    color: #65adff;
+
+    font-weight: 600;
+
+}
+
+
+.footer-note a:hover {
+
+    color: white;
+
+    text-decoration: underline;
+
+}
+
+
+/* =====================================
+   ADVANCED SUCCESS OVERLAY
+===================================== */
+
+.success-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(21,111,220,.30),
+            rgba(2,15,35,.98) 65%
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(.85);
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease,
+        transform .7s
+        cubic-bezier(.16,1,.3,1);
+
+    z-index: 50;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+}
+
+
+/* SUCCESS SHOW */
+
+.success-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =====================================
+   GLOWING RINGS
+===================================== */
+
+.success-overlay::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(84,170,255,.25);
+
+    animation:
+        successPulse
+        2.5s
+        ease-out
+        infinite;
+
+}
+
+
+.success-overlay::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 360px;
+
+    height: 360px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(84,170,255,.12);
+
+    animation:
+        successPulse
+        2.5s
+        ease-out
+        1s
+        infinite;
+
+}
+
+
+@keyframes successPulse {
+
+    0% {
+
+        transform:
+            scale(.4);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.6);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================
+   CHECK CIRCLE
+===================================== */
+
+.check {
+
+    position: relative;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1687f5,
+            #45b6ff
+        );
+
+    margin-bottom: 25px;
+
+    box-shadow:
+
+        0 0 0 8px
+        rgba(22,135,245,.10),
+
+        0 0 40px
+        rgba(22,135,245,.55),
+
+        0 15px 45px
+        rgba(0,0,0,.45);
+
+    transform:
+        scale(0);
+
+}
+
+
+.success-overlay.show .check {
+
+    animation:
+        checkPop
+        .8s
+        cubic-bezier(.17,.89,.32,1.49)
+        forwards;
+
+}
+
+
+@keyframes checkPop {
+
+    0% {
+
+        transform:
+            scale(0)
+            rotate(-45deg);
+
+    }
+
+    70% {
+
+        transform:
+            scale(1.15)
+            rotate(5deg);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1)
+            rotate(0);
+
+    }
+
+}
+
+
+/* =====================================
+   CHECK SVG
+===================================== */
+
+.check svg {
+
+    width: 48px;
+
+    height: 48px;
+
+    fill: none;
+
+    stroke: white;
+
+    stroke-width: 2.5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+.success-overlay.show .check path {
+
+    stroke-dasharray: 30;
+
+    stroke-dashoffset: 30;
+
+    animation:
+        drawCheck
+        .7s
+        ease
+        .45s
+        forwards;
+
+}
+
+
+@keyframes drawCheck {
+
+    to {
+
+        stroke-dashoffset: 0;
+
+    }
+
+}
+
+
+/* =====================================
+   THANK YOU TITLE
+===================================== */
+
+.success-overlay h2 {
+
+    position: relative;
+
+    font-family:
+        "Source Serif 4",
+        serif;
+
+    font-size: 34px;
+
+    margin-bottom: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #6db9ff,
+            #ffffff
+        );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+}
+
+
+.success-overlay.show h2 {
+
+    animation:
+        thankYouTitle
+        .7s
+        cubic-bezier(.22,1,.36,1)
+        .25s
+        forwards;
+
+}
+
+
+@keyframes thankYouTitle {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        background-position:
+            200% center;
+
+    }
+
+}
+
+
+/* =====================================
+   SUCCESS MESSAGE
+===================================== */
+
+.success-overlay p {
+
+    position: relative;
+
+    max-width: 330px;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+}
+
+
+.success-overlay.show p {
+
+    animation:
+        successMessage
+        .7s
+        ease
+        .55s
+        forwards;
+
+}
+
+
+@keyframes successMessage {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================
+   SUCCESS SPARKLES
+===================================== */
+
+.success-sparkle {
+
+    position: absolute;
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 10px #55a9ff,
+        0 0 20px #55a9ff;
+
+    opacity: 0;
+
+}
+
+
+.success-overlay.show .success-sparkle {
+
+    animation:
+        sparkleFloat
+        2.5s
+        ease-out
+        forwards;
+
+}
+
+
+.success-sparkle:nth-child(1) {
+
+    left: 15%;
+
+    top: 30%;
+
+    animation-delay: .1s;
+
+}
+
+
+.success-sparkle:nth-child(2) {
+
+    left: 80%;
+
+    top: 25%;
+
+    animation-delay: .3s;
+
+}
+
+
+.success-sparkle:nth-child(3) {
+
+    left: 25%;
+
+    top: 75%;
+
+    animation-delay: .5s;
+
+}
+
+
+.success-sparkle:nth-child(4) {
+
+    left: 75%;
+
+    top: 70%;
+
+    animation-delay: .7s;
+
+}
+
+
+.success-sparkle:nth-child(5) {
+
+    left: 50%;
+
+    top: 15%;
+
+    animation-delay: .9s;
+
+}
+
+
+@keyframes sparkleFloat {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.3);
+
+    }
+
+    30% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-100px)
+            scale(1.5);
+
+    }
+
+}
+
+
+/* =====================================
+   LEGAL
+===================================== */
+
+.legal {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    color:
+        rgba(255,255,255,.45);
+
+}
+
+
+/* =====================================
+   TOAST
+===================================== */
+
+.toast {
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    z-index: 500;
+
+    background: #082f61;
+
+    color: white;
+
+    padding: 11px 15px;
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.2);
+
+    font-size: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px);
+
+    pointer-events: none;
+
+    transition: .25s;
+
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+
+        transform:
+            translateX(-100%);
+
+        width: 235px;
+
+    }
+
+
+    .sidebar.open {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .mobilebar {
+
+        display: flex;
+
+    }
+
+
+    main {
+
+        margin-left: 0;
+
+        padding-top: 60px;
+
+    }
+
+
+    .topbar {
+
+        height: 62px;
+
+        padding: 0 15px;
+
+    }
+
+
+    .profile-button {
+
+        display: none;
+
+    }
+
+
+    .search {
+
+        width: 100%;
+
+        max-width: 330px;
+
+    }
+
+
+    .page {
+
+        min-height:
+            calc(100vh - 122px);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .page {
+
+        padding: 30px 14px;
+
+    }
+
+
+    .feedback-card {
+
+        padding: 30px 22px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .logo img {
+
+        width: 75px;
+
+        height: 75px;
+
+    }
+
+
+    .logo-section h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .logo-section p {
+
+        font-size: 12px;
+
+    }
+
+
+    .top-actions {
+
+        display: none;
+
+    }
+
+
+    .desktop-menu {
+
+        display: none;
+
+    }
+
+
+    .success-overlay h2 {
+
+        font-size: 29px;
+
+    }
+
+
+    .success-overlay p {
+
+        font-size: 13px;
+
+    }
+
+
+    .check {
+
+        width: 85px;
+
+        height: 85px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     LOADER
+===================================== -->
+
+<div class="loader"
+     id="loader">
+
+    <div class="loader-ring"></div>
+
+    <div class="loader-text">
+
+        <strong>IIUI PORTAL</strong>
+
+        <small>
+            Preparing feedback page...
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     MOBILE BAR
+===================================== -->
+
+<div class="mobilebar">
+
+    <button id="menuBtn">
+
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+
+    </button>
+
+
+    <strong>
+        IIUI STUDENT PORTAL
+    </strong>
+
+
+    <button id="mobileBell">
+
+        <span class="material-symbols-outlined">
+            notifications
+        </span>
+
+    </button>
+
+</div>
+
+
+<!-- =====================================
+     SIDEBAR
+===================================== -->
+
+<aside class="sidebar"
+       id="sidebar">
+
+
+    <!-- BRAND -->
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            IIU
+        </div>
+
+
+        <div>
+
+            <strong>
+                IBADAT
+            </strong>
+
+
+            <small>
+
+                INTERNATIONAL
+                <br>
+
+                UNIVERSITY
+                <br>
+
+                ISLAMABAD
+
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav">
+
+
+        <a href="dashboard.html">
+
+            <span class="material-symbols-outlined">
+                home
+            </span>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="course.html">
+
+            <span class="material-symbols-outlined">
+                menu_book
+            </span>
+
+            My Courses
+
+        </a>
+
+
+        <a href="attendence.html">
+
+            <span class="material-symbols-outlined">
+                task_alt
+            </span>
+
+            Attendance
+
+        </a>
+
+
+        <a href="finanial.html">
+
+            <span class="material-symbols-outlined">
+                school
+            </span>
+
+            Financials
+
+        </a>
+
+
+        <a href="library.html">
+
+            <span class="material-symbols-outlined">
+                local_library
+            </span>
+
+            Library
+
+        </a>
+
+
+        <a href="setting.html">
+
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+
+            Settings
+
+        </a>
+
+
+        <a href="feedback.html"
+           class="nav-item active">
+
+            <span class="material-symbols-outlined">
+                rate_review
+            </span>
+
+            <span>
+                Feedback
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- ACADEMIC PROGRESS -->
+
+    <div class="academic">
+
+        <h3>
+            Academic Progress
+        </h3>
+
+
+        <div class="ring">
+
+            <span>
+                78%
+            </span>
+
+        </div>
+
+
+        <p>
+            Credits Completed
+        </p>
+
+
+        <strong>
+            93 / 120
+        </strong>
+
+
+        <button class="progress-button"
+                id="progressButton">
+
+            View Progress
+
+        </button>
+
+    </div>
+
+
+</aside>
+
+
+<!-- =====================================
+     MAIN
+===================================== -->
+
+<main>
+
+
+    <!-- =================================
+         TOPBAR
+    ================================== -->
+
+    <header class="topbar">
+
+
+        <button class="menu-btn"
+                id="desktopMenu">
+
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+
+        </button>
+
+
+        <!-- SEARCH -->
+
+        <div class="search">
+
+            <span class="material-symbols-outlined">
+                search
+            </span>
+
+
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="Search anything...">
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="top-actions">
+
+
+            <button class="top-icon"
+                    id="notificationButton">
+
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+
+                <i>3</i>
+
+            </button>
+
+
+            <button class="top-icon"
+                    id="messageButton">
+
+                <span class="material-symbols-outlined">
+                    chat_bubble_outline
+                </span>
+
+            </button>
+
+
+            <button class="profile-button"
+                    id="profileButton">
+
+
+                <img
+                    src="image.png"
+                    alt="Hasnain Khan">
+
+
+                <span>
+
+                    <strong>
+                        Hasnain Khan
+                    </strong>
+
+
+                    <small>
+                        BS Software Engineering
+                    </small>
+
+                </span>
+
+
+                <span class="material-symbols-outlined">
+                    expand_more
+                </span>
+
+
+            </button>
+
+
+        </div>
+
+
+    </header>
+
+
+    <!-- =================================
+         FEEDBACK PAGE
+    ================================== -->
+
+    <section class="page">
+
+
+        <!-- BACKGROUND -->
+
+        <div class="background-image"></div>
+
+        <div class="vignette"></div>
+
+
+        <!-- ORBS -->
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+
+        <!-- PARTICLES -->
+
+        <div class="particles">
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+            <span class="particle"></span>
+
+        </div>
+
+
+        <!-- FEEDBACK CONTAINER -->
+
+        <div class="feedback-container">
+
+
+            <!-- FORM -->
+
+            <form
+                class="feedback-card"
+                id="feedbackForm"
+                action="https://formspree.io/f/mgawpled"
+                method="POST">
+
+
+                <!-- LOGO -->
+
+                <div class="logo-section">
+
+
+                    <div class="logo">
+
+                        <img
+                            src="aa.png"
+                            alt="IIUI Logo">
+
+                    </div>
+
+
+                    <h1>
+                        Feedback
+                    </h1>
+
+
+                    <p>
+
+                        Ibadat International University Islamabad
+
+                        <br>
+
+                        We'd love to hear your thoughts
+
+                    </p>
+
+
+                </div>
+
+
+                <!-- FULL NAME -->
+
+                <div class="field"
+                     id="nameField">
+
+
+                    <label for="fbName">
+                        Full Name
+                    </label>
+
+
+                    <div class="input-wrap">
+
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="fbName"
+                            name="name"
+                            placeholder="Your full name"
+                            autocomplete="name">
+
+
+                    </div>
+
+
+                    <div class="error-msg">
+                        Please enter your name.
+                    </div>
+
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="field"
+                     id="emailField">
+
+
+                    <label for="fbEmail">
+                        Email Address
+                    </label>
+
+
+                    <div class="input-wrap">
+
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="fbEmail"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email">
+
+
+                    </div>
+
+
+                    <div class="error-msg">
+                        Please enter a valid email.
+                    </div>
+
+
+                </div>
+
+
+                <!-- CATEGORY -->
+
+                <div class="field">
+
+
+                   
+
+                    
+
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="field"
+                     id="messageField">
+
+
+                    <label for="fbMessage">
+                        Your Feedback
+                    </label>
+
+
+                    <div class="input-wrap textarea-wrap">
+
+
+                        <textarea
+                            id="fbMessage"
+                            name="message"
+                            placeholder="Tell us what's on your mind..."></textarea>
+
+
+                    </div>
+
+
+                    <div class="error-msg">
+                        Please enter your feedback.
+                    </div>
+
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit"
+                    id="submitButton">
+
+
+                    <span class="scan"></span>
+
+
+                    <span class="btn-text">
+                        Send Feedback
+                    </span>
+
+
+                </button>
+
+
+                <!-- BACK TO DASHBOARD -->
+
+                <p class="footer-note">
+
+
+                    <a href="dashboard.html">
+
+                        ← Back to Dashboard
+
+                    </a>
+
+
+                    <br>
+
+
+                    Need help?
+
+
+                    <a href="mailto:registrar@iiui.edu.pk">
+
+                        Contact the registrar's office
+
+                    </a>
+
+
+                </p>
+
+
+                <!-- =================================
+                     ADVANCED SUCCESS OVERLAY
+                ================================== -->
+
+                <div
+                    class="success-overlay"
+                    id="successOverlay">
+
+
+                    <!-- SPARKLES -->
+
+                    <span class="success-sparkle"></span>
+
+                    <span class="success-sparkle"></span>
+
+                    <span class="success-sparkle"></span>
+
+                    <span class="success-sparkle"></span>
+
+                    <span class="success-sparkle"></span>
+
+
+                    <!-- CHECK -->
+
+                    <div class="check">
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M4 12l6 6L20 6">
+                            </path>
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <!-- TITLE -->
+
+                    <h2>
+                        Thank You!
+                    </h2>
+
+
+                    <!-- MESSAGE -->
+
+                    <p>
+
+                        Your feedback has been submitted successfully.
+
+                        <br>
+
+                        We truly appreciate you taking the time
+                        to help us improve the IIUI Student Portal.
+
+                    </p>
+
+
+                </div>
+
+
+            </form>
+
+
+            <!-- COPYRIGHT -->
+
+            <p class="legal">
+
+                © 2026 Ibadat International University Islamabad.
+
+                <br>
+
+                All rights reserved.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================
+     TOAST
+===================================== -->
+
+<div class="toast"
+     id="toast">
+
+
+    <span class="material-symbols-outlined">
+        check_circle
+    </span>
+
+
+    <span id="toastText">
+        Done
+    </span>
+
+
+</div>
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =================================
+           GET ELEMENTS
+        ================================= */
+
+        const loader =
+            document.getElementById("loader");
+
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+
+        const desktopMenu =
+            document.getElementById("desktopMenu");
+
+
+        const form =
+            document.getElementById("feedbackForm");
+
+
+        const nameInput =
+            document.getElementById("fbName");
+
+
+        const emailInput =
+            document.getElementById("fbEmail");
+
+
+        const messageInput =
+            document.getElementById("fbMessage");
+
+
+        const nameField =
+            document.getElementById("nameField");
+
+
+        const emailField =
+            document.getElementById("emailField");
+
+
+        const messageField =
+            document.getElementById("messageField");
+
+
+        const successOverlay =
+            document.getElementById("successOverlay");
+
+
+        const toast =
+            document.getElementById("toast");
+
+
+        const toastText =
+            document.getElementById("toastText");
+
+
+        const submitButton =
+            document.getElementById("submitButton");
+
+
+        const buttonText =
+            submitButton.querySelector(".btn-text");
+
+
+        /* =================================
+           LOADER
+        ================================= */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                setTimeout(
+                    function () {
+
+                        loader.classList.add("hide");
+
+                    },
+                    700
+                );
+
+            }
+        );
+
+
+        /* =================================
+           SAFETY LOADER
+        ================================= */
+
+        setTimeout(
+            function () {
+
+                loader.classList.add("hide");
+
+            },
+            2500
+        );
+
+
+        /* =================================
+           TOAST
+        ================================= */
+
+        function showToast(message) {
+
+            toastText.textContent =
+                message;
+
+
+            toast.classList.add("show");
+
+
+            setTimeout(
+                function () {
+
+                    toast.classList.remove("show");
+
+                },
+                2500
+            );
+
+        }
+
+
+        /* =================================
+           MOBILE SIDEBAR
+        ================================= */
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.toggle("open");
+
+            }
+        );
+
+
+        /* =================================
+           DESKTOP MENU
+        ================================= */
+
+        desktopMenu.addEventListener(
+            "click",
+            function () {
+
+                sidebar.classList.toggle("open");
+
+            }
+        );
+
+
+        /* =================================
+           CLOSE SIDEBAR
+        ================================= */
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+
+                    window.innerWidth <= 850 &&
+
+                    !sidebar.contains(event.target) &&
+
+                    !menuBtn.contains(event.target) &&
+
+                    !desktopMenu.contains(event.target)
+
+                ) {
+
+                    sidebar.classList.remove("open");
+
+                }
+
+            }
+        );
+
+
+        /* =================================
+           RESET FORM
+        ================================= */
+
+        function resetFeedbackPage() {
+
+            successOverlay.classList.remove("show");
+
+            form.reset();
+
+            nameField.classList.remove("error");
+
+            emailField.classList.remove("error");
+
+            messageField.classList.remove("error");
+
+            submitButton.disabled = false;
+
+            buttonText.textContent =
+                "Send Feedback";
+
+        }
+
+
+        /* =================================
+           PAGE OPEN
+        ================================= */
+
+        resetFeedbackPage();
+
+
+        /* =================================
+           BROWSER BACK BUTTON
+        ================================= */
+
+        window.addEventListener(
+            "pageshow",
+            function () {
+
+                resetFeedbackPage();
+
+            }
+        );
+
+
+        /* =================================
+           REMOVE NAME ERROR
+        ================================= */
+
+        nameInput.addEventListener(
+            "input",
+            function () {
+
+                nameField.classList.remove("error");
+
+            }
+        );
+
+
+        /* =================================
+           REMOVE EMAIL ERROR
+        ================================= */
+
+        emailInput.addEventListener(
+            "input",
+            function () {
+
+                emailField.classList.remove("error");
+
+            }
+        );
+
+
+        /* =================================
+           REMOVE MESSAGE ERROR
+        ================================= */
+
+        messageInput.addEventListener(
+            "input",
+            function () {
+
+                messageField.classList.remove("error");
+
+            }
+        );
+
+
+        /* =================================
+           FORM SUBMIT
+           FORMSPREE AJAX
+        ================================= */
+
+        form.addEventListener(
+            "submit",
+            async function (e) {
+
+
+                /* STOP NORMAL PAGE REDIRECT */
+
+                e.preventDefault();
+
+
+                /* =================================
+                   GET VALUES
+                ================================= */
+
+                const name =
+                    nameInput.value.trim();
+
+
+                const email =
+                    emailInput.value.trim();
+
+
+                const message =
+                    messageInput.value.trim();
+
+
+                let valid = true;
+
+
+                /* =================================
+                   REMOVE OLD ERRORS
+                ================================= */
+
+                nameField.classList.remove(
+                    "error"
+                );
+
+
+                emailField.classList.remove(
+                    "error"
+                );
+
+
+                messageField.classList.remove(
+                    "error"
+                );
+
+
+                /* =================================
+                   NAME VALIDATION
+                ================================= */
+
+                if (name === "") {
+
+                    nameField.classList.add(
+                        "error"
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* =================================
+                   EMAIL VALIDATION
+                ================================= */
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    email === "" ||
+                    !emailPattern.test(email)
+                ) {
+
+                    emailField.classList.add(
+                        "error"
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* =================================
+                   MESSAGE VALIDATION
+                ================================= */
+
+                if (message === "") {
+
+                    messageField.classList.add(
+                        "error"
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* =================================
+                   INVALID
+                ================================= */
+
+                if (!valid) {
+
+                    showToast(
+                        "Please complete all required fields."
+                    );
+
+                    return;
+
+                }
+
+
+                /* =================================
+                   SENDING ANIMATION
+                ================================= */
+
+                submitButton.disabled = true;
+
+                buttonText.textContent =
+                    "Sending...";
+
+
+                try {
+
+
+                    /* =================================
+                       CREATE FORM DATA
+                    ================================= */
+
+                    const formData =
+                        new FormData(form);
+
+
+                    /* =================================
+                       SEND TO FORMSPREE
+                    ================================= */
+
+                    const response =
+                        await fetch(
+                            form.action,
+                            {
+                                method: "POST",
+
+                                body: formData,
+
+                                headers: {
+                                    "Accept":
+                                        "application/json"
+                                }
+                            }
+                        );
+
+
+                    /* =================================
+                       SUCCESS
+                    ================================= */
+
+                    if (response.ok) {
+
+
+                        /* SHOW ADVANCED SUCCESS */
+
+                        successOverlay.classList.add(
+                            "show"
+                        );
+
+
+                        /* RESET FORM */
+
+                        form.reset();
+
+
+                        /* REMOVE ERRORS */
+
+                        nameField.classList.remove(
+                            "error"
+                        );
+
+
+                        emailField.classList.remove(
+                            "error"
+                        );
+
+
+                        messageField.classList.remove(
+                            "error"
+                        );
+
+
+                        /* RESTORE BUTTON */
+
+                        submitButton.disabled =
+                            false;
+
+
+                        buttonText.textContent =
+                            "Send Feedback";
+
+
+                        /* =================================
+                           HIDE SUCCESS AFTER 4 SECONDS
+                        ================================= */
+
+                        setTimeout(
+                            function () {
+
+                                successOverlay.classList.remove(
+                                    "show"
+                                );
+
+                            },
+                            4000
+                        );
+
+
+                    }
+
+                    else {
+
+                        throw new Error(
+                            "Form submission failed"
+                        );
+
+                    }
+
+
+                }
+
+                catch (error) {
+
+
+                    console.error(
+                        "Formspree Error:",
+                        error
+                    );
+
+
+                    /* RESTORE BUTTON */
+
+                    submitButton.disabled =
+                        false;
+
+
+                    buttonText.textContent =
+                        "Send Feedback";
+
+
+                    /* SHOW ERROR */
+
+                    showToast(
+                        "Something went wrong. Please try again."
+                    );
+
+
+                }
+
+            }
+        );
+
+
+        /* =================================
+           NOTIFICATIONS
+        ================================= */
+
+        document.getElementById(
+            "notificationButton"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "You have 3 notifications."
+                );
+
+            }
+        );
+
+
+        /* =================================
+           MESSAGES
+        ================================= */
+
+        document.getElementById(
+            "messageButton"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "No new messages."
+                );
+
+            }
+        );
+
+
+        /* =================================
+           MOBILE BELL
+        ================================= */
+
+        document.getElementById(
+            "mobileBell"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "You have 3 notifications."
+                );
+
+            }
+        );
+
+
+        /* =================================
+           ACADEMIC PROGRESS
+        ================================= */
+
+        document.getElementById(
+            "progressButton"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "Academic progress: 78%"
+                );
+
+            }
+        );
+
+
+        /* =================================
+           PROFILE
+        ================================= */
+
+        document.getElementById(
+            "profileButton"
+        ).addEventListener(
+            "click",
+            function () {
+
+                showToast(
+                    "Profile menu clicked."
+                );
+
+            }
+        );
+
+
+        /* =================================
+           SEARCH
+        ================================= */
+
+        document.getElementById(
+            "searchInput"
+        ).addEventListener(
+            "keydown",
+            function (event) {
+
+
+                if (event.key === "Enter") {
+
+
+                    const value =
+                        event.target.value.trim();
+
+
+                    if (value !== "") {
+
+                        showToast(
+                            "Searching for: " + value
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
