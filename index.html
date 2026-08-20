@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#020c19">
+
+    <title>IIUI Portal - Sign In</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         MATERIAL ICONS
+    ====================================================== -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600;700"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            font-family: "Hanken Grotesk", sans-serif;
+
+            overflow-x: hidden;
+
+            background: #020c19;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ====================================================== */
+
+        .page {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 40px 20px;
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           BACKGROUND IMAGE
+        ====================================================== */
+
+        .background-image {
+
+            position: absolute;
+
+            inset: -8%;
+
+            background-image:
+
+                linear-gradient(
+                    135deg,
+                    rgba(0, 10, 30, .82),
+                    rgba(0, 33, 71, .68),
+                    rgba(0, 10, 30, .88)
+                ),
+
+                url("ak.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            animation:
+                backgroundZoom 18s
+                ease-in-out
+                infinite
+                alternate;
+
+            z-index: 0;
+        }
+
+
+        @keyframes backgroundZoom {
+
+            0% {
+
+                transform: scale(1);
+
+                background-position:
+                    center center;
+            }
+
+            50% {
+
+                transform: scale(1.07);
+
+                background-position:
+                    52% 48%;
+            }
+
+            100% {
+
+                transform: scale(1.14);
+
+                background-position:
+                    48% 52%;
+            }
+        }
+
+
+        /* =====================================================
+           DARK VIGNETTE
+        ====================================================== */
+
+        .vignette {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    transparent 10%,
+                    rgba(0, 5, 18, .30) 55%,
+                    rgba(0, 5, 18, .86) 100%
+                );
+
+            z-index: 1;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           LIGHT ORBS
+        ====================================================== */
+
+        .orb {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(4px);
+
+            opacity: .35;
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        .orb-one {
+
+            width: 280px;
+
+            height: 280px;
+
+            background: #1685ff;
+
+            top: -100px;
+
+            left: -80px;
+
+            animation:
+                floatOne 9s
+                ease-in-out
+                infinite;
+        }
+
+
+        .orb-two {
+
+            width: 230px;
+
+            height: 230px;
+
+            background: #00c8ff;
+
+            right: -80px;
+
+            bottom: -60px;
+
+            animation:
+                floatTwo 11s
+                ease-in-out
+                infinite;
+        }
+
+
+        .orb-three {
+
+            width: 150px;
+
+            height: 150px;
+
+            background: white;
+
+            right: 20%;
+
+            top: 10%;
+
+            opacity: .08;
+
+            animation:
+                floatThree 7s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes floatOne {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0, 0)
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    translate(80px, 70px)
+                    scale(1.15);
+            }
+        }
+
+
+        @keyframes floatTwo {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+
+                transform:
+                    translate(-70px, -80px);
+            }
+        }
+
+
+        @keyframes floatThree {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(40px);
+            }
+        }
+
+
+        /* =====================================================
+           PARTICLES
+        ====================================================== */
+
+        .particles {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        .particle {
+
+            position: absolute;
+
+            width: 5px;
+
+            height: 5px;
+
+            background:
+                rgba(255, 255, 255, .55);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px
+                rgba(255, 255, 255, .6);
+
+            animation:
+                particleFloat
+                linear
+                infinite;
+        }
+
+
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-duration: 8s;
+        }
+
+
+        .particle:nth-child(2) {
+            left: 20%;
+            top: 70%;
+            animation-duration: 11s;
+        }
+
+
+        .particle:nth-child(3) {
+            left: 35%;
+            top: 15%;
+            animation-duration: 9s;
+        }
+
+
+        .particle:nth-child(4) {
+            left: 50%;
+            top: 80%;
+            animation-duration: 12s;
+        }
+
+
+        .particle:nth-child(5) {
+            left: 65%;
+            top: 25%;
+            animation-duration: 10s;
+        }
+
+
+        .particle:nth-child(6) {
+            left: 78%;
+            top: 65%;
+            animation-duration: 13s;
+        }
+
+
+        .particle:nth-child(7) {
+            left: 90%;
+            top: 30%;
+            animation-duration: 9s;
+        }
+
+
+        .particle:nth-child(8) {
+            left: 45%;
+            top: 45%;
+            animation-duration: 15s;
+        }
+
+
+        @keyframes particleFloat {
+
+            0% {
+
+                transform:
+                    translateY(40px);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-120px);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           LOGIN CONTAINER
+        ====================================================== */
+
+        .login-container {
+
+            position: relative;
+
+            z-index: 10;
+
+            width: 100%;
+
+            max-width: 460px;
+
+            animation:
+                cardEntrance
+                1s
+                cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        @keyframes cardEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(50px)
+                    scale(.94);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           LOGIN CARD
+        ====================================================== */
+
+        .login-card {
+
+            position: relative;
+
+            padding: 42px;
+
+            border-radius: 26px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.20),
+                    rgba(255,255,255,.08)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.25);
+
+            backdrop-filter:
+                blur(25px);
+
+            -webkit-backdrop-filter:
+                blur(25px);
+
+            box-shadow:
+
+                0 30px 80px
+                rgba(0,0,0,.45),
+
+                inset 0 1px 0
+                rgba(255,255,255,.25);
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           ANIMATED BORDER
+        ====================================================== */
+
+        .login-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 200%;
+
+            height: 200%;
+
+            left: -50%;
+
+            top: -50%;
+
+            background:
+
+                conic-gradient(
+                    transparent,
+                    transparent,
+                    rgba(36,135,255,.8),
+                    transparent,
+                    transparent
+                );
+
+            animation:
+                rotateBorder
+                8s
+                linear
+                infinite;
+
+            z-index: -2;
+        }
+
+
+        .login-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 1px;
+
+            border-radius: 25px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(3,20,43,.94),
+                    rgba(4,34,65,.88)
+                );
+
+            z-index: -1;
+        }
+
+
+        @keyframes rotateBorder {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .logo-section {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+
+        .logo img {
+
+            width: 110px;
+
+            height: 110px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border:
+                3px solid
+                rgba(255,255,255,.75);
+
+            box-shadow:
+
+                0 0 0 7px
+                rgba(255,255,255,.08),
+
+                0 10px 35px
+                rgba(0,0,0,.4);
+
+            animation:
+                logoFloat
+                4s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes logoFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-7px)
+                    rotate(2deg);
+            }
+        }
+
+
+        .logo-section h1 {
+
+            font-family:
+                "Source Serif 4",
+                serif;
+
+            font-size: 31px;
+
+            font-weight: 700;
+
+            letter-spacing: -.5px;
+        }
+
+
+        .logo-section p {
+
+            margin-top: 7px;
+
+            color:
+                rgba(255,255,255,.65);
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           FORM FIELDS
+        ====================================================== */
+
+        .field {
+
+            margin-bottom: 21px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color:
+                rgba(255,255,255,.82);
+        }
+
+
+        .input-wrap {
+
+            height: 54px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 15px;
+
+            gap: 11px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.075);
+
+            border:
+                1px solid
+                rgba(255,255,255,.16);
+
+            transition:
+                .3s ease;
+        }
+
+
+        .input-wrap:focus-within {
+
+            border-color:
+                #3295ff;
+
+            background:
+                rgba(255,255,255,.11);
+
+            box-shadow:
+
+                0 0 0 4px
+                rgba(32,130,255,.13),
+
+                0 10px 25px
+                rgba(0,0,0,.12);
+        }
+
+
+        .input-wrap > span {
+
+            color:
+                #79baff;
+
+            font-size: 21px;
+        }
+
+
+        .input-wrap input {
+
+            width: 100%;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 15px;
+        }
+
+
+        .input-wrap input::placeholder {
+
+            color:
+                rgba(255,255,255,.38);
+        }
+
+
+        /* =====================================================
+           PASSWORD BUTTON
+        ====================================================== */
+
+        .toggle-pw {
+
+            border: none;
+
+            background: transparent;
+
+            color:
+                rgba(255,255,255,.5);
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 5px;
+        }
+
+
+        .toggle-pw:hover {
+            color: white;
+        }
+
+
+        /* =====================================================
+           ERROR
+        ====================================================== */
+
+        .error-msg {
+
+            display: none;
+
+            color:
+                #ff8d8d;
+
+            font-size: 12px;
+
+            margin-top: 6px;
+        }
+
+
+        .field.error .input-wrap {
+
+            border-color:
+                #ff5959;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255,89,89,.08);
+        }
+
+
+        .field.error .error-msg {
+            display: block;
+        }
+
+
+        /* =====================================================
+           REMEMBER / FORGOT
+        ====================================================== */
+
+        .row-between {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin:
+                5px 0 25px;
+
+            font-size: 13px;
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color:
+                rgba(255,255,255,.65);
+
+            cursor: pointer;
+        }
+
+
+        .remember input {
+
+            width: 16px;
+
+            height: 16px;
+
+            accent-color:
+                #1976d2;
+
+            cursor: pointer;
+        }
+
+
+        .forgot {
+
+            color:
+                #65adff;
+
+            text-decoration: none;
+
+            transition:
+                .2s;
+        }
+
+
+        .forgot:hover {
+
+            color: white;
+
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           SUBMIT BUTTON
+        ====================================================== */
+
+        .submit {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 55px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    #0d5fba,
+                    #1687f5,
+                    #0d5fba
+                );
+
+            background-size:
+                200% auto;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,100,220,.3);
+
+            transition:
+                .3s ease;
+
+            animation:
+                buttonGradient
+                4s
+                linear
+                infinite;
+        }
+
+
+        .submit:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 16px 35px
+                rgba(0,100,220,.45);
+        }
+
+
+        .submit:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        .submit:disabled {
+
+            cursor:
+                not-allowed;
+
+            opacity:
+                .85;
+
+            transform:
+                none;
+        }
+
+
+        @keyframes buttonGradient {
+
+            0% {
+
+                background-position:
+                    0% center;
+            }
+
+            100% {
+
+                background-position:
+                    200% center;
+            }
+        }
+
+
+        /* =====================================================
+           BUTTON LIGHT SCAN
+        ====================================================== */
+
+        .scan {
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 60%;
+
+            height: 100%;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.35),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            animation:
+                scan
+                3s
+                infinite;
+        }
+
+
+        @keyframes scan {
+
+            0% {
+                left: -100%;
+            }
+
+            45%,
+            100% {
+                left: 150%;
+            }
+        }
+
+
+        .btn-text {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           SPINNER
+        ====================================================== */
+
+        .spinner {
+
+            display: none;
+
+            width: 20px;
+
+            height: 20px;
+
+            border:
+                2px solid
+                rgba(255,255,255,.35);
+
+            border-top-color:
+                white;
+
+            border-radius: 50%;
+
+            animation:
+                spin
+                .7s
+                linear
+                infinite;
+
+            margin: auto;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+
+        /* =====================================================
+           DIVIDER
+        ====================================================== */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin:
+                25px 0;
+
+            color:
+                rgba(255,255,255,.35);
+
+            font-size: 12px;
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                rgba(255,255,255,.12);
+        }
+
+
+        /* =====================================================
+           FOOTER NOTE
+        ====================================================== */
+
+        .footer-note {
+
+            text-align: center;
+
+            color:
+                rgba(255,255,255,.55);
+
+            font-size: 13px;
+        }
+
+
+        .footer-note a {
+
+            color:
+                #65adff;
+
+            text-decoration: none;
+        }
+
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           SUCCESS OVERLAY
+        ====================================================== */
+
+        .success-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(3,25,50,.98),
+                    rgba(0,15,32,.98)
+                );
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                scale(.95);
+
+            transition:
+                .4s ease;
+
+            z-index: 20;
+        }
+
+
+        .success-overlay.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                scale(1);
+        }
+
+
+        /* =====================================================
+           SUCCESS CHECK
+        ====================================================== */
+
+        .check {
+
+            width: 80px;
+
+            height: 80px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                #1687f5;
+
+            box-shadow:
+
+                0 0 0 10px
+                rgba(22,135,245,.12),
+
+                0 15px 40px
+                rgba(0,100,220,.3);
+
+            margin-bottom: 20px;
+
+            animation:
+                successPop
+                .6s
+                ease;
+        }
+
+
+        @keyframes successPop {
+
+            0% {
+                transform:
+                    scale(.3);
+            }
+
+            70% {
+                transform:
+                    scale(1.1);
+            }
+
+            100% {
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        .check svg {
+
+            width: 40px;
+
+            height: 40px;
+
+            fill: none;
+
+            stroke: white;
+
+            stroke-width: 2;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+        }
+
+
+        .success-overlay p {
+
+            color:
+                rgba(255,255,255,.8);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           COPYRIGHT
+        ====================================================== */
+
+        .legal {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            font-size: 11px;
+
+            color:
+                rgba(255,255,255,.45);
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                padding:
+                    20px 14px;
+            }
+
+
+            .login-card {
+
+                padding:
+                    30px 22px;
+
+                border-radius:
+                    22px;
+            }
+
+
+            .logo img {
+
+                width: 85px;
+
+                height: 85px;
+            }
+
+
+            .logo-section h1 {
+
+                font-size:
+                    27px;
+            }
+
+
+            .logo-section p {
+
+                font-size:
+                    12px;
+            }
+
+
+            .row-between {
+
+                font-size:
+                    12px;
+            }
+
+
+            .orb-one {
+
+                width:
+                    180px;
+
+                height:
+                    180px;
+            }
+
+
+            .orb-two {
+
+                width:
+                    150px;
+
+                height:
+                    150px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL SCREEN HEIGHT
+        ====================================================== */
+
+        @media (max-height: 700px) {
+
+            .page {
+
+                align-items:
+                    flex-start;
+
+                padding-top:
+                    25px;
+            }
+
+
+            .login-card {
+
+                padding-top:
+                    25px;
+
+                padding-bottom:
+                    25px;
+            }
+
+
+            .logo-section {
+
+                margin-bottom:
+                    20px;
+            }
+
+
+            .field {
+
+                margin-bottom:
+                    15px;
+            }
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAGE
+    ====================================================== -->
+
+    <main class="page">
+
+
+        <!-- =================================================
+             BACKGROUND IMAGE
+        ================================================== -->
+
+        <div class="background-image"></div>
+
+
+        <!-- =================================================
+             VIGNETTE
+        ================================================== -->
+
+        <div class="vignette"></div>
+
+
+        <!-- =================================================
+             LIGHT ORBS
+        ================================================== -->
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+
+        <!-- =================================================
+             PARTICLES
+        ================================================== -->
+
+        <div class="particles">
+
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGIN CONTAINER
+        ================================================== -->
+
+        <div class="login-container">
+
+
+            <!-- =================================================
+                 LOGIN FORM
+            ================================================== -->
+
+            <form
+                class="login-card"
+                id="loginForm">
+
+
+                <!-- =================================================
+                     LOGO
+                ================================================== -->
+
+                <div class="logo-section">
+
+
+                    <div class="logo">
+
+                        <img
+                            src="aa.png"
+                            alt="IIUI Logo">
+
+                    </div>
+
+
+                    <h1>
+                        IIUI Portal
+                    </h1>
+
+
+                    <p>
+                        Ibadat International University Islamabad
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     STUDENT ID
+                ================================================== -->
+
+                <div class="field">
+
+
+                    <label for="uid">
+                        Student ID or Username
+                    </label>
+
+
+                    <div
+                        class="input-wrap"
+                        id="uidWrap">
+
+
+                        <span class="material-symbols-outlined">
+                            badge
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="uid"
+                            placeholder="e.g. IIUI-BSE-2124"
+                            autocomplete="username">
+
+
+                    </div>
+
+
+                    <div
+                        class="error-msg"
+                        id="uidError">
+
+                        Enter your student ID or username.
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PASSWORD
+                ================================================== -->
+
+                <div class="field">
+
+
+                    <label for="pwd">
+                        Password
+                    </label>
+
+
+                    <div
+                        class="input-wrap"
+                        id="pwdWrap">
+
+
+                        <span class="material-symbols-outlined">
+                            lock
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="pwd"
+                            placeholder="••••••••"
+                            autocomplete="current-password">
+
+
+                        <button
+                            type="button"
+                            class="toggle-pw"
+                            id="togglePw"
+                            aria-label="Show password">
+
+
+                            <span
+                                class="material-symbols-outlined"
+                                id="toggleIcon">
+
+                                visibility
+
+                            </span>
+
+
+                        </button>
+
+
+                    </div>
+
+
+                    <div
+                        class="error-msg"
+                        id="pwdError">
+
+                        Enter your password.
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     REMEMBER / FORGOT
+                ================================================== -->
+
+                <div class="row-between">
+
+
+                    <label class="remember">
+
+
+                        <input
+                            type="checkbox"
+                            id="remember">
+
+
+                        Remember me
+
+
+                    </label>
+
+
+                    <a
+                        class="forgot"
+                        href="#"
+                        id="forgotPassword">
+
+                        Forgot password?
+
+                    </a>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     SIGN IN BUTTON
+                ================================================== -->
+
+                <button
+                    type="submit"
+                    class="submit"
+                    id="submitBtn">
+
+
+                    <span class="scan"></span>
+
+
+                    <span class="btn-text">
+                        Sign In
+                    </span>
+
+
+                    <span class="spinner"></span>
+
+
+                </button>
+
+
+                <!-- =================================================
+                     DIVIDER
+                ================================================== -->
+
+                <div class="divider">
+                    or
+                </div>
+
+
+                <!-- =================================================
+                     HELP
+                ================================================== -->
+
+                <p class="footer-note">
+
+
+                    Need help?
+
+
+                    <a
+                        href="#"
+                        id="supportLink">
+
+                        Contact the registrar's office
+
+                    </a>
+
+
+                </p>
+
+
+                <!-- =================================================
+                     SUCCESS OVERLAY
+                ================================================== -->
+
+                <div
+                    class="success-overlay"
+                    id="successOverlay">
+
+
+                    <div class="check">
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M4 12l6 6L20 6">
+                            </path>
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <p>
+                        Welcome back. Loading your dashboard…
+                    </p>
+
+
+                </div>
+
+
+            </form>
+
+
+            <!-- =================================================
+                 COPYRIGHT
+            ================================================== -->
+
+            <p class="legal">
+
+                © 2026 Ibadat International University Islamabad.
+                All rights reserved.
+
+            </p>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            /* =================================================
+               GET ELEMENTS
+            ================================================= */
+
+            const loginForm =
+                document.getElementById("loginForm");
+
+            const uid =
+                document.getElementById("uid");
+
+            const pwd =
+                document.getElementById("pwd");
+
+            const uidField =
+                uid.closest(".field");
+
+            const pwdField =
+                pwd.closest(".field");
+
+            const togglePw =
+                document.getElementById("togglePw");
+
+            const toggleIcon =
+                document.getElementById("toggleIcon");
+
+            const submitBtn =
+                document.getElementById("submitBtn");
+
+            const btnText =
+                submitBtn.querySelector(".btn-text");
+
+            const spinner =
+                submitBtn.querySelector(".spinner");
+
+            const successOverlay =
+                document.getElementById("successOverlay");
+
+
+            /* =================================================
+               SHOW / HIDE PASSWORD
+            ================================================= */
+
+            togglePw.addEventListener("click", function () {
+
+
+                if (pwd.type === "password") {
+
+
+                    pwd.type = "text";
+
+
+                    toggleIcon.textContent =
+                        "visibility_off";
+
+
+                    togglePw.setAttribute(
+                        "aria-label",
+                        "Hide password"
+                    );
+
+
+                } else {
+
+
+                    pwd.type = "password";
+
+
+                    toggleIcon.textContent =
+                        "visibility";
+
+
+                    togglePw.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+
+                }
+
+            });
+
+
+            /* =================================================
+               REMOVE USERNAME ERROR
+            ================================================= */
+
+            uid.addEventListener("input", function () {
+
+                uidField.classList.remove("error");
+
+            });
+
+
+            /* =================================================
+               REMOVE PASSWORD ERROR
+            ================================================= */
+
+            pwd.addEventListener("input", function () {
+
+                pwdField.classList.remove("error");
+
+            });
+
+
+            /* =================================================
+               LOGIN FORM
+            ================================================= */
+
+            loginForm.addEventListener(
+                "submit",
+                function (e) {
+
+
+                    /* Stop normal form submission */
+
+                    e.preventDefault();
+
+
+                    /* Get values */
+
+                    const username =
+                        uid.value.trim();
+
+                    const password =
+                        pwd.value.trim();
+
+
+                    /* Remove previous errors */
+
+                    uidField.classList.remove(
+                        "error"
+                    );
+
+                    pwdField.classList.remove(
+                        "error"
+                    );
+
+
+                    /* =================================================
+                       CHECK USERNAME
+                    ================================================= */
+
+                    if (username === "") {
+
+
+                        uidField.classList.add(
+                            "error"
+                        );
+
+
+                        uid.focus();
+
+
+                        return;
+
+                    }
+
+
+                    /* =================================================
+                       CHECK PASSWORD
+                    ================================================= */
+
+                    if (password === "") {
+
+
+                        pwdField.classList.add(
+                            "error"
+                        );
+
+
+                        pwd.focus();
+
+
+                        return;
+
+                    }
+
+
+                    /* =================================================
+                       LOGIN SUCCESS
+                    ================================================= */
+
+                    submitBtn.disabled = true;
+
+
+                    btnText.style.display =
+                        "none";
+
+
+                    spinner.style.display =
+                        "block";
+
+
+                    /* Show success animation */
+
+                    successOverlay.classList.add(
+                        "show"
+                    );
+
+
+                    /* =================================================
+                       OPEN DASHBOARD
+                    ================================================= */
+
+                    setTimeout(function () {
+
+
+                        window.location.href =
+                            "dashboard.html";
+
+
+                    }, 1200);
+
+
+                }
+            );
+
+
+            /* =================================================
+               FORGOT PASSWORD
+            ================================================= */
+
+            document
+                .getElementById("forgotPassword")
+                .addEventListener(
+                    "click",
+                    function (e) {
+
+
+                        e.preventDefault();
+
+
+                        alert(
+                            "Please contact the registrar's office to reset your password."
+                        );
+
+
+                    }
+                );
+
+
+            /* =================================================
+               SUPPORT LINK
+            ================================================= */
+
+            document
+                .getElementById("supportLink")
+                .addEventListener(
+                    "click",
+                    function (e) {
+
+
+                        e.preventDefault();
+
+
+                        alert(
+                            "Please contact the registrar's office for assistance."
+                        );
+
+
+                    }
+                );
+
+
+        });
+
+    </script>
+
+
+</body>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const username = document.getElementById("uid").value.trim();
+    const password = document.getElementById("pwd").value.trim();
+
+    if (username === "") {
+        alert("Please enter your Student ID or Username.");
+        document.getElementById("uid").focus();
+        return;
+    }
+
+    if (password === "") {
+        alert("Please enter your password.");
+        document.getElementById("pwd").focus();
+        return;
+    }
+
+    // Show success animation
+    const overlay = document.getElementById("successOverlay");
+
+    if (overlay) {
+        overlay.classList.add("show");
+    }
+
+    // Open dashboard
+    setTimeout(function() {
+        window.location.href = "dashboard.html";
+    }, 800);
+
+});
+</script>
+</html>
