@@ -1,0 +1,2176 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Financials - IIUI Portal</title>
+
+
+    <!-- ================= TAILWIND CSS ================= -->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ================= MATERIAL ICONS ================= -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700;1&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ================= TAILWIND CONFIG ================= -->
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: "class",
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        "on-secondary-container": "#003370",
+
+                        "tertiary-fixed": "#93f2f2",
+
+                        "tertiary-fixed-dim": "#76d6d5",
+
+                        "tertiary-container": "#002626",
+
+                        "outline-variant": "#c4c6cf",
+
+                        "on-tertiary-fixed": "#002020",
+
+                        "on-primary-fixed-variant": "#2d476f",
+
+                        "error": "#ba1a1a",
+
+                        "on-surface-variant": "#44474e",
+
+                        "secondary-container": "#659dfe",
+
+                        "background": "#faf9fd",
+
+                        "on-primary-fixed": "#001b3d",
+
+                        "error-container": "#ffdad6",
+
+                        "on-error-container": "#93000a",
+
+                        "primary-container": "#002147",
+
+                        "primary-fixed-dim": "#aec7f6",
+
+                        "surface-container-highest": "#e3e2e6",
+
+                        "outline": "#74777f",
+
+                        "surface-container-high": "#e9e7eb",
+
+                        "surface-container-lowest": "#ffffff",
+
+                        "inverse-on-surface": "#f1f0f4",
+
+                        "on-background": "#1a1b1e",
+
+                        "primary-fixed": "#d6e3ff",
+
+                        "on-tertiary-container": "#2f9696",
+
+                        "on-tertiary": "#ffffff",
+
+                        "secondary-fixed-dim": "#acc7ff",
+
+                        "surface-bright": "#faf9fd",
+
+                        "on-secondary-fixed-variant": "#004491",
+
+                        "on-primary": "#ffffff",
+
+                        "surface-tint": "#465f88",
+
+                        "surface-container": "#efedf1",
+
+                        "surface-container-low": "#f4f3f7",
+
+                        "on-primary-container": "#708ab5",
+
+                        "primary": "#000a1e",
+
+                        "secondary": "#115cb9",
+
+                        "surface-variant": "#e3e2e6",
+
+                        "on-error": "#ffffff",
+
+                        "surface": "#faf9fd",
+
+                        "on-secondary": "#ffffff",
+
+                        "surface-dim": "#dad9dd",
+
+                        "on-surface": "#1a1b1e",
+
+                        "inverse-surface": "#2f3033",
+
+                        "secondary-fixed": "#d7e2ff"
+
+                    },
+
+
+                    borderRadius: {
+
+                        DEFAULT: "0.25rem",
+
+                        lg: "0.5rem",
+
+                        xl: "0.75rem",
+
+                        full: "9999px"
+
+                    },
+
+
+                    spacing: {
+
+                        "container-max": "1280px",
+
+                        "margin-desktop": "64px",
+
+                        "margin-mobile": "20px",
+
+                        "gutter": "24px",
+
+                        "base": "8px"
+
+                    },
+
+
+                    fontFamily: {
+
+                        "label-md": ["Hanken Grotesk"],
+
+                        "body-lg": ["Hanken Grotesk"],
+
+                        "body-md": ["Hanken Grotesk"],
+
+                        "display-lg-mobile": ["Source Serif 4"],
+
+                        "headline-sm": ["Source Serif 4"],
+
+                        "display-lg": ["Source Serif 4"],
+
+                        "headline-md": ["Source Serif 4"],
+
+                        "caption": ["Hanken Grotesk"]
+
+                    },
+
+
+                    fontSize: {
+
+                        "label-md": [
+
+                            "14px",
+
+                            {
+
+                                lineHeight: "1.2",
+
+                                letterSpacing: "0.05em",
+
+                                fontWeight: "600"
+
+                            }
+
+                        ],
+
+
+                        "body-lg": [
+
+                            "18px",
+
+                            {
+
+                                lineHeight: "1.6",
+
+                                fontWeight: "400"
+
+                            }
+
+                        ],
+
+
+                        "body-md": [
+
+                            "16px",
+
+                            {
+
+                                lineHeight: "1.6",
+
+                                fontWeight: "400"
+
+                            }
+
+                        ],
+
+
+                        "display-lg-mobile": [
+
+                            "32px",
+
+                            {
+
+                                lineHeight: "1.2",
+
+                                fontWeight: "700"
+
+                            }
+
+                        ],
+
+
+                        "headline-sm": [
+
+                            "24px",
+
+                            {
+
+                                lineHeight: "1.4",
+
+                                fontWeight: "600"
+
+                            }
+
+                        ],
+
+
+                        "display-lg": [
+
+                            "48px",
+
+                            {
+
+                                lineHeight: "1.1",
+
+                                letterSpacing: "-0.02em",
+
+                                fontWeight: "700"
+
+                            }
+
+                        ],
+
+
+                        "headline-md": [
+
+                            "32px",
+
+                            {
+
+                                lineHeight: "1.3",
+
+                                fontWeight: "600"
+
+                            }
+
+                        ],
+
+
+                        "caption": [
+
+                            "12px",
+
+                            {
+
+                                lineHeight: "1.4",
+
+                                fontWeight: "500"
+
+                            }
+
+                        ]
+
+                    }
+
+                }
+
+            }
+
+        };
+
+    </script>
+
+
+    <!-- ================= CUSTOM CSS ================= -->
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        .glass-panel {
+
+            background: rgba(255, 255, 255, 0.7);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 0.5px solid rgba(255, 255, 255, 0.5);
+
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+
+        }
+
+
+        /* =========================================
+           MOBILE TABLE
+        ========================================= */
+
+        @media (max-width: 767px) {
+
+            table {
+
+                min-width: 700px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR (matches Attendance / My Courses page exactly)
+        ========================================================= */
+
+        .sidebar {
+
+            width: 212px;
+
+            background: linear-gradient(
+                180deg,
+                #031c37 0%,
+                #062b52 100%
+            );
+
+            color: white;
+
+            position: fixed;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            z-index: 100;
+
+            overflow-y: auto;
+
+            font-family: "Hanken Grotesk", sans-serif;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,.15);
+        }
+
+        .sidebar .logo-area {
+            height: 84px;
+
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+
+            padding: 4px 10px 18px;
+
+            border-bottom: 1px solid rgba(255,255,255,.12);
+        }
+
+        .sidebar .brand-logo {
+            width: 43px;
+            height: 54px;
+            flex: none;
+
+            border: 2px solid #e8c24f;
+            border-radius: 48% 48% 50% 50%;
+
+            display: grid;
+            place-items: center;
+
+            color: #e8c24f;
+            font-family: Georgia, serif;
+            font-weight: 700;
+            font-size: 9px;
+
+            box-shadow: inset 0 0 0 3px rgba(232,194,79,.12);
+
+            animation: logoPop .7s cubic-bezier(.34,1.56,.64,1) both;
+
+            transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+        }
+
+        .sidebar .brand-logo:hover {
+            transform: rotate(-8deg) scale(1.08);
+        }
+
+        .sidebar .logo-text {
+            line-height: 1.05;
+        }
+
+        .sidebar .logo-text strong {
+            display: block;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: .03em;
+        }
+
+        .sidebar .logo-text small {
+            display: block;
+            margin-top: 4px;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 8px;
+            line-height: 1.25;
+        }
+
+        .sidebar .navigation {
+            padding: 12px 8px;
+        }
+
+        .sidebar .nav-item {
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 0 13px;
+
+            margin-bottom: 4px;
+
+            border-radius: 10px;
+
+            color: rgba(255,255,255,.86);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: background .25s ease, color .25s ease, transform .25s ease;
+
+            opacity: 0;
+
+            animation: navSlideIn .5s ease forwards;
+        }
+
+        .sidebar .nav-item:nth-child(1) { animation-delay: .05s; }
+        .sidebar .nav-item:nth-child(2) { animation-delay: .1s; }
+        .sidebar .nav-item:nth-child(3) { animation-delay: .15s; }
+        .sidebar .nav-item:nth-child(4) { animation-delay: .2s; }
+        .sidebar .nav-item:nth-child(5) { animation-delay: .25s; }
+        .sidebar .nav-item:nth-child(6) { animation-delay: .3s; }
+
+        .sidebar .nav-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,.14);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease;
+            z-index: -1;
+            border-radius: inherit;
+        }
+
+        .sidebar .nav-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .sidebar .nav-item:hover {
+            color: white;
+            transform: translateX(3px);
+        }
+
+        .sidebar .nav-item.active {
+            background: linear-gradient(
+                90deg,
+                #1675e8,
+                #1462c7
+            );
+
+            color: white;
+
+            box-shadow: 0 8px 20px rgba(0,100,220,.25);
+
+            animation: navSlideIn .5s ease forwards, activeGlow 2.4s ease-in-out .6s infinite;
+        }
+
+        .sidebar .nav-item .material-symbols-outlined {
+            font-size: 21px;
+            transition: transform .3s ease;
+        }
+
+        .sidebar .nav-item:hover .material-symbols-outlined {
+            transform: scale(1.12) rotate(-4deg);
+        }
+
+        .sidebar .badge {
+            margin-left: auto;
+
+            min-width: 20px;
+            height: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .sidebar .badge-purple {
+            background: #8b4de8;
+        }
+
+        .sidebar .badge-cyan {
+            background: #13bfc8;
+        }
+
+        .sidebar .badge-red {
+            background: #ff5135;
+        }
+
+        .sidebar .progress-box {
+            margin: 12px;
+
+            padding: 16px;
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            border-radius: 13px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,.035);
+
+            opacity: 0;
+
+            animation: fadeUp .6s ease .5s forwards;
+        }
+
+        .sidebar .progress-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .sidebar .progress-circle {
+            width: 84px;
+            height: 84px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: radial-gradient(
+                circle,
+                #062b52 58%,
+                transparent 60%
+            );
+
+            border: 7px solid #237fe7;
+
+            box-shadow: 0 0 0 5px rgba(35,127,231,.12);
+
+            position: relative;
+
+            animation: ringPulse 3s ease-in-out .9s infinite;
+        }
+
+        .sidebar .progress-circle span {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .sidebar .progress-info {
+            margin-top: 12px;
+            font-size: 12px;
+        }
+
+        .sidebar .progress-info strong {
+            display: block;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .sidebar .progress-button {
+            width: 100%;
+            border: none;
+            margin-top: 12px;
+            padding: 9px;
+            border-radius: 7px;
+            color: white;
+            background: #0d4a91;
+            cursor: pointer;
+            transition: background .25s ease, transform .15s ease;
+        }
+
+        .sidebar .progress-button:hover {
+            background: #1675e8;
+            transform: translateY(-1px);
+        }
+
+        .sidebar .progress-button:active {
+            transform: translateY(0) scale(.98);
+        }
+
+        @media(max-width:768px) {
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: .3s;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* =========================================================
+           KEYFRAME LIBRARY
+        ========================================================= */
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(.94); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes navSlideIn {
+            from { opacity: 0; transform: translateX(-14px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes logoPop {
+            0%   { opacity: 0; transform: scale(.6) rotate(-8deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { box-shadow: 0 0 0 5px rgba(35,127,231,.12); }
+            50%      { box-shadow: 0 0 0 9px rgba(35,127,231,.05); }
+        }
+
+        @keyframes activeGlow {
+            0%, 100% { box-shadow: 0 8px 20px rgba(0,100,220,.25); }
+            50%      { box-shadow: 0 8px 26px rgba(0,100,220,.45); }
+        }
+
+        @keyframes shimmerSweep {
+            0%   { transform: translateX(-120%) skewX(-15deg); }
+            100% { transform: translateX(220%) skewX(-15deg); }
+        }
+
+        @keyframes gradientFlow {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50%      { transform: scale(1.18); opacity: .75; }
+        }
+
+        @keyframes rowIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes underlineGrow {
+            from { width: 0; }
+            to   { width: 100%; }
+        }
+
+
+        /* =========================================================
+           REVEAL-ON-SCROLL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           PAGE HEADER
+        ========================================================= */
+
+        .page-title-anim {
+            animation: fadeUp .7s cubic-bezier(.22,1,.36,1) both;
+        }
+
+        .page-sub-anim {
+            animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .12s both;
+        }
+
+
+        /* =========================================================
+           SUMMARY CARDS
+        ========================================================= */
+
+        .summary-card {
+            transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
+            will-change: transform;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0,20,60,.1);
+        }
+
+        .summary-card .blob-glow {
+            animation: pulseDot 4s ease-in-out infinite;
+        }
+
+        .summary-card .material-symbols-outlined {
+            transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+        }
+
+        .summary-card:hover .material-symbols-outlined {
+            transform: scale(1.2) rotate(6deg);
+        }
+
+        .count-value {
+            display: inline-block;
+        }
+
+        .due-badge {
+            animation: pulseDot 2.2s ease-in-out infinite;
+        }
+
+
+        /* =========================================================
+           TRANSACTION TABLE
+        ========================================================= */
+
+        .tx-row {
+            opacity: 0;
+            animation: rowIn .5s ease forwards;
+        }
+
+        .tx-row:nth-of-type(1) { animation-delay: .1s; }
+        .tx-row:nth-of-type(2) { animation-delay: .2s; }
+        .tx-row:nth-of-type(3) { animation-delay: .3s; }
+
+        .tx-row {
+            transition: background-color .2s ease;
+        }
+
+        .view-all-btn {
+            transition: transform .25s ease, background .25s ease;
+        }
+
+        .view-all-btn:hover {
+            transform: translateX(3px);
+            background: rgba(0,0,0,.06);
+        }
+
+        .view-all-btn .material-symbols-outlined {
+            transition: transform .25s ease;
+        }
+
+        .view-all-btn:hover .material-symbols-outlined {
+            transform: translateX(3px);
+        }
+
+        .status-pill {
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+           PAYMENT ACTION BUTTONS
+        ========================================================= */
+
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .btn-shimmer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0,10,30,.25);
+        }
+
+        .btn-shimmer:active {
+            transform: translateY(0) scale(.98);
+        }
+
+        .btn-shimmer::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,.35),
+                transparent
+            );
+            transform: translateX(-120%) skewX(-15deg);
+        }
+
+        .btn-shimmer:hover::after {
+            animation: shimmerSweep 1s ease forwards;
+        }
+
+        .btn-outline-anim {
+            transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+        }
+
+        .btn-outline-anim:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(17,92,185,.12);
+        }
+
+        .btn-outline-anim:active {
+            transform: translateY(0) scale(.98);
+        }
+
+
+        /* =========================================================
+           FINANCIAL ASSISTANCE CARD
+        ========================================================= */
+
+        .assistance-card {
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .assistance-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,20,60,.08);
+        }
+
+        .assistance-top-bar {
+            background-size: 200% 200%;
+            animation: gradientFlow 4s ease infinite;
+        }
+
+        .assistance-icon-wrap {
+            transition: transform .4s cubic-bezier(.34,1.56,.64,1), background .3s ease;
+        }
+
+        .assistance-card:hover .assistance-icon-wrap {
+            transform: rotate(-8deg) scale(1.08);
+            background: #d6e3ff;
+        }
+
+        .learn-more-link {
+            position: relative;
+        }
+
+        .learn-more-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 1.5px;
+            width: 0%;
+            background: currentColor;
+            transition: width .3s ease;
+        }
+
+        .learn-more-link:hover::after {
+            width: 100%;
+        }
+
+        .learn-more-link .material-symbols-outlined {
+            transition: transform .25s ease;
+        }
+
+        .learn-more-link:hover .material-symbols-outlined {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================================================
+           FOOTER LINKS
+        ========================================================= */
+
+        footer a {
+            position: relative;
+            transition: color .25s ease, transform .2s ease;
+        }
+
+        footer a:hover {
+            transform: translateX(3px);
+        }
+
+
+        /* =========================================================
+           MOBILE HEADER
+        ========================================================= */
+
+        .mobile-header-anim {
+            animation: fadeUp .5s ease both;
+        }
+
+        #menuIcon {
+            transition: transform .3s ease;
+        }
+
+        #menuButton:active #menuIcon {
+            transform: scale(.85) rotate(90deg);
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *, *::before, *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-background text-on-background font-body-md min-h-screen">
+
+
+    <!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header
+        class="mobile-header-anim md:hidden sticky top-0 z-50 h-16 px-4 flex items-center justify-between bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+
+
+        <div class="flex items-center gap-3">
+
+            <div
+                class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+
+                <span class="material-symbols-outlined text-xl">
+                    account_balance
+                </span>
+
+            </div>
+
+
+            <h1 class="font-headline-sm text-headline-sm text-primary font-bold">
+
+                IIUI Portal
+
+            </h1>
+
+        </div>
+
+
+        <button
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation menu"
+            class="p-2 rounded-lg text-on-surface hover:bg-surface-container-high transition">
+
+            <span
+                id="menuIcon"
+                class="material-symbols-outlined">
+
+                menu
+
+            </span>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         SIDEBAR (same as Attendance page)
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-area">
+
+            <div class="brand-logo">IIU</div>
+
+            <div class="logo-text">
+
+                <strong>IBADAT</strong>
+                <small>INTERNATIONAL<br>UNIVERSITY<br>ISLAMABAD</small>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="material-symbols-outlined">home</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="course.html" class="nav-item">
+                <span class="material-symbols-outlined">menu_book</span>
+                <span>My Courses</span>
+            </a>
+
+            <a href="attendence.html" class="nav-item">
+                <span class="material-symbols-outlined">check_circle</span>
+                <span>Attendance</span>
+            </a>
+
+  
+
+
+        
+
+            <!-- ACTIVE -->
+
+            <a href="finanial.html" class="nav-item active">
+                <span class="material-symbols-outlined">school</span>
+                <span>Financials</span>
+            </a>
+
+            <a href="library.html" class="nav-item">
+                <span class="material-symbols-outlined">local_library</span>
+                <span>Library</span>
+            </a>
+
+     
+
+        
+
+            <a href="setting.html" class="nav-item">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- ACADEMIC PROGRESS -->
+
+        <div class="progress-box">
+
+            <div class="progress-title">
+                Academic Progress
+            </div>
+
+            <div class="progress-circle">
+                <span>78%</span>
+            </div>
+
+            <div class="progress-info">
+                Credits Completed
+                <strong>93 / 120</strong>
+            </div>
+
+            <button class="progress-button">
+                View Progress
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main
+        class="md:ml-[212px] min-h-screen flex flex-col">
+
+
+        <!-- CONTENT WRAPPER -->
+
+        <div
+            class="p-5 md:p-16 flex-1 max-w-[1280px] mx-auto w-full space-y-8 md:space-y-12">
+
+
+            <!-- ================= PAGE HEADER ================= -->
+
+            <header>
+
+                <h1
+                    class="page-title-anim font-display-lg-mobile md:font-display-lg text-primary mb-2">
+
+                    Financial Overview
+
+                </h1>
+
+
+                <p
+                    class="page-sub-anim font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+
+                    Manage your tuition fees, view transaction history,
+                    and download vouchers.
+
+                </p>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 FINANCIAL SUMMARY
+            ================================================== -->
+
+            <section
+                class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+
+                <!-- CURRENT BALANCE -->
+
+                <div
+                    class="summary-card reveal glass-panel rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
+
+
+                    <div
+                        class="blob-glow absolute -right-5 -top-5 w-24 h-24 bg-secondary-container/30 rounded-full blur-2xl">
+                    </div>
+
+
+                    <div>
+
+                        <div
+                            class="flex items-center gap-2 mb-4">
+
+                            <span class="material-symbols-outlined text-secondary">
+
+                                account_balance_wallet
+
+                            </span>
+
+
+                            <h3
+                                class="font-label-md text-label-md text-on-surface-variant uppercase">
+
+                                Current Balance
+
+                            </h3>
+
+                        </div>
+
+
+                        <span
+                            class="count-value font-display-lg-mobile md:font-display-lg text-primary leading-none"
+                            data-count-to="45000"
+                            data-prefix="Rs. ">
+
+                            Rs. 45,000
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-5">
+
+                        <span
+                            class="due-badge inline-flex items-center px-3 py-1 rounded-full bg-error-container text-on-error-container font-caption text-caption font-bold">
+
+                            Due in 15 days
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TOTAL SEMESTER FEE -->
+
+                <div
+                    class="summary-card reveal glass-panel rounded-xl p-6 flex flex-col justify-between">
+
+
+                    <div>
+
+                        <div
+                            class="flex items-center gap-2 mb-4">
+
+                            <span class="material-symbols-outlined text-secondary">
+
+                                receipt_long
+
+                            </span>
+
+
+                            <h3
+                                class="font-label-md text-label-md text-on-surface-variant uppercase">
+
+                                Total Semester Fee
+
+                            </h3>
+
+                        </div>
+
+
+                        <span
+                            class="count-value font-display-lg-mobile md:font-display-lg text-primary leading-none"
+                            data-count-to="120000"
+                            data-prefix="Rs. ">
+
+                            Rs. 120,000
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- AMOUNT PAID -->
+
+                <div
+                    class="summary-card reveal glass-panel rounded-xl p-6 flex flex-col justify-between">
+
+
+                    <div>
+
+                        <div
+                            class="flex items-center gap-2 mb-4">
+
+                            <span class="material-symbols-outlined text-[#2f9696]">
+
+                                check_circle
+
+                            </span>
+
+
+                            <h3
+                                class="font-label-md text-label-md text-on-surface-variant uppercase">
+
+                                Amount Paid
+
+                            </h3>
+
+                        </div>
+
+
+                        <span
+                            class="count-value font-display-lg-mobile md:font-display-lg text-primary leading-none"
+                            data-count-to="75000"
+                            data-prefix="Rs. ">
+
+                            Rs. 75,000
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-5">
+
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full bg-[#e6f4ea] text-[#137333] font-caption text-caption">
+
+                            Paid
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TRANSACTION HISTORY
+            ================================================== -->
+
+            <section
+                class="reveal bg-white rounded-xl border border-outline-variant/50 shadow-sm overflow-hidden">
+
+
+                <!-- HEADER -->
+
+                <div
+                    class="p-6 border-b border-outline-variant/50 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 bg-surface-container-lowest">
+
+
+                    <h2
+                        class="font-headline-sm text-headline-sm text-primary">
+
+                        Transaction History
+
+                    </h2>
+
+
+                    <button
+                        type="button"
+                        class="view-all-btn px-3 py-1.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest transition">
+
+                        View All
+
+                        <span class="material-symbols-outlined text-sm">
+
+                            arrow_forward
+
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="overflow-x-auto">
+
+
+                    <table class="w-full text-left border-collapse">
+
+
+                        <thead>
+
+                            <tr
+                                class="bg-surface border-b border-outline-variant/50">
+
+
+                                <th
+                                    class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">
+
+                                    Date
+
+                                </th>
+
+
+                                <th
+                                    class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">
+
+                                    Description
+
+                                </th>
+
+
+                                <th
+                                    class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">
+
+                                    Ref No.
+
+                                </th>
+
+
+                                <th
+                                    class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">
+
+                                    Amount
+
+                                </th>
+
+
+                                <th
+                                    class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">
+
+                                    Status
+
+                                </th>
+
+
+                            </tr>
+
+                        </thead>
+
+
+
+                        <tbody
+                            class="divide-y divide-outline-variant/30">
+
+
+                            <!-- TRANSACTION 1 -->
+
+                            <tr
+                                class="tx-row hover:bg-surface-container-low transition-colors">
+
+
+                                <td
+                                    class="p-4 text-on-surface-variant whitespace-nowrap">
+
+                                    Oct 15, 2024
+
+                                </td>
+
+
+                                <td class="p-4">
+
+                                    <div
+                                        class="font-body-md text-primary font-medium whitespace-nowrap">
+
+                                        Tuition Fee Installment 1
+
+                                    </div>
+
+                                </td>
+
+
+                                <td
+                                    class="p-4 text-on-surface-variant whitespace-nowrap">
+
+                                    TRX-98214
+
+                                </td>
+
+
+                                <td
+                                    class="p-4 font-medium whitespace-nowrap">
+
+                                    Rs. 75,000
+
+                                </td>
+
+
+                                <td class="p-4">
+
+                                    <span
+                                        class="status-pill inline-flex items-center px-2 py-1 rounded-full bg-[#e6f4ea] text-[#137333] font-caption text-caption whitespace-nowrap">
+
+                                        Completed
+
+                                    </span>
+
+                                </td>
+
+
+                            </tr>
+
+
+
+                            <!-- TRANSACTION 2 -->
+
+                            <tr
+                                class="tx-row hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+
+
+                                <td
+                                    class="p-4 text-on-surface-variant whitespace-nowrap">
+
+                                    Sep 01, 2024
+
+                                </td>
+
+
+                                <td class="p-4">
+
+                                    <div
+                                        class="font-body-md text-primary font-medium whitespace-nowrap">
+
+                                        Library Fine
+
+                                    </div>
+
+                                </td>
+
+
+                                <td
+                                    class="p-4 text-on-surface-variant whitespace-nowrap">
+
+                                    LIB-4421
+
+                                </td>
+
+
+                                <td
+                                    class="p-4 font-medium whitespace-nowrap">
+
+                                    Rs. 500
+
+                                </td>
+
+
+                                <td class="p-4">
+
+                                    <span
+                                        class="status-pill inline-flex items-center px-2 py-1 rounded-full bg-[#e6f4ea] text-[#137333] font-caption text-caption whitespace-nowrap">
+
+                                        Completed
+
+                                    </span>
+
+                                </td>
+
+
+                            </tr>
+
+
+
+                            <!-- TRANSACTION 3 -->
+
+                            <tr
+                                class="tx-row hover:bg-surface-container-low transition-colors">
+
+
+                                <td
+                                    class="p-4 text-on-surface-variant whitespace-nowrap">
+
+                                    Aug 20, 2024
+
+                                </td>
+
+
+                                <td class="p-4">
+
+                                    <div
+                                        class="font-body-md text-primary font-medium whitespace-nowrap">
+
+                                        Semester Registration
+
+                                    </div>
+
+                                </td>
+
+
+                                <td
+                                    class="p-4 text-on-surface-variant whitespace-nowrap">
+
+                                    REG-1190
+
+                                </td>
+
+
+                                <td
+                                    class="p-4 font-medium whitespace-nowrap">
+
+                                    Rs. 5,000
+
+                                </td>
+
+
+                                <td class="p-4">
+
+                                    <span
+                                        class="status-pill inline-flex items-center px-2 py-1 rounded-full bg-[#e6f4ea] text-[#137333] font-caption text-caption whitespace-nowrap">
+
+                                        Completed
+
+                                    </span>
+
+                                </td>
+
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 BOTTOM CARDS
+            ================================================== -->
+
+            <section
+                class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+
+                <!-- PAYMENT ACTIONS -->
+
+                <div
+                    class="reveal glass-panel p-6 rounded-xl">
+
+
+                    <h2
+                        class="font-headline-sm text-headline-sm text-primary mb-6">
+
+                        Payment Actions
+
+                    </h2>
+
+
+                    <div class="space-y-4">
+
+
+                        <button
+                            type="button"
+                            class="btn-shimmer w-full py-4 px-6 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 hover:bg-primary/90 transition shadow-sm">
+
+                            <span class="material-symbols-outlined">
+
+                                credit_card
+
+                            </span>
+
+                            Pay Online Now
+
+                        </button>
+
+
+
+                        <button
+                            type="button"
+                            class="btn-outline-anim w-full py-4 px-6 bg-transparent border-2 border-secondary text-secondary rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 hover:bg-secondary/5 transition">
+
+                            <span class="material-symbols-outlined">
+
+                                download
+
+                            </span>
+
+                            Download Fee Voucher
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FINANCIAL ASSISTANCE -->
+
+                <div
+                    class="assistance-card reveal lg:col-span-2 glass-panel rounded-xl overflow-hidden relative">
+
+
+                    <div
+                        class="assistance-top-bar h-1 bg-gradient-to-r from-[#FFD700] to-[#000a1e] w-full absolute top-0 left-0">
+                    </div>
+
+
+                    <div class="p-6 md:p-8">
+
+
+                        <div class="flex items-start gap-4">
+
+
+                            <div
+                                class="assistance-icon-wrap w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center flex-shrink-0">
+
+
+                                <span
+                                    class="material-symbols-outlined text-secondary">
+
+                                    school
+
+                                </span>
+
+
+                            </div>
+
+
+                            <div>
+
+
+                                <h3
+                                    class="font-headline-sm text-headline-sm text-primary mb-2">
+
+                                    Need Financial Assistance?
+
+                                </h3>
+
+
+                                <p
+                                    class="font-body-md text-body-md text-on-surface-variant mb-4">
+
+                                    Explore our scholarship programs and flexible
+                                    payment plans designed to support your
+                                    academic journey.
+
+                                </p>
+
+
+                                <a
+                                    href="#"
+                                    class="learn-more-link font-label-md text-label-md text-secondary flex items-center gap-1 w-fit">
+
+                                    Learn More
+
+                                    <span
+                                        class="material-symbols-outlined text-sm">
+
+                                        arrow_forward
+
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
+
+        <footer
+            class="bg-primary text-on-primary w-full px-5 md:px-16 py-12 mt-8">
+
+
+            <div class="max-w-[1280px] mx-auto">
+
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+
+                    <!-- FOOTER BRAND -->
+
+                    <div>
+
+
+                        <div
+                            class="font-headline-sm text-headline-sm text-on-primary mb-4">
+
+                            IIUI Portal
+
+                        </div>
+
+
+                        <p
+                            class="text-on-primary-container font-body-md">
+
+                            Your academic portal for managing university
+                            activities.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- COLUMN 2 -->
+
+                    <div>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md mb-3 hover:text-secondary-fixed-dim">
+
+                            Academic Calendar
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md hover:text-secondary-fixed-dim">
+
+                            Accreditation
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- COLUMN 3 -->
+
+                    <div>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md mb-3 hover:text-secondary-fixed-dim">
+
+                            Career Services
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md hover:text-secondary-fixed-dim">
+
+                            Student Support
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- COLUMN 4 -->
+
+                    <div>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md mb-3 hover:text-secondary-fixed-dim">
+
+                            Privacy Policy
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md hover:text-secondary-fixed-dim">
+
+                            Contact Us
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- COPYRIGHT -->
+
+                <div
+                    class="mt-10 pt-8 border-t border-on-primary/20">
+
+
+                    <p
+                        class="font-body-md text-body-md text-on-primary-container">
+
+                        © 2024 Ibadat International University Islamabad.
+                        All Rights Reserved.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MOBILE MENU JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+        const menuIcon =
+            document.getElementById("menuIcon");
+
+
+
+        /* =========================================
+           OPEN / CLOSE SIDEBAR
+        ========================================= */
+
+        function toggleSidebar() {
+
+            sidebar.classList.toggle("open");
+
+            menuIcon.textContent =
+                sidebar.classList.contains("open")
+                    ? "close"
+                    : "menu";
+
+        }
+
+
+
+        /* =========================================
+           MENU BUTTON
+        ========================================= */
+
+        menuButton.addEventListener(
+            "click",
+            toggleSidebar
+        );
+
+
+
+        /* =========================================
+           CLOSE SIDEBAR AFTER NAVIGATION
+        ========================================= */
+
+        document
+            .querySelectorAll(".nav-item")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        if (window.innerWidth < 768) {
+
+                            sidebar.classList.remove("open");
+
+                            menuIcon.textContent = "menu";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+
+        /* =========================================
+           HANDLE WINDOW RESIZE
+        ========================================= */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (window.innerWidth >= 768) {
+
+                    sidebar.classList.remove("open");
+
+                    menuIcon.textContent = "menu";
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================================
+           SCROLL-TRIGGERED REVEAL ANIMATIONS
+        ========================================================= */
+
+        const prefersReducedMotion =
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const revealEls = document.querySelectorAll(".reveal");
+
+        if (prefersReducedMotion) {
+
+            revealEls.forEach(el => el.classList.add("is-visible"));
+
+        } else {
+
+            const revealObserver = new IntersectionObserver((entries) => {
+
+                entries.forEach((entry, i) => {
+
+                    if (entry.isIntersecting) {
+
+                        setTimeout(() => {
+
+                            entry.target.classList.add("is-visible");
+
+                        }, i * 90);
+
+                        revealObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+            revealEls.forEach(el => revealObserver.observe(el));
+
+        }
+
+
+
+        /* =========================================================
+           ANIMATED NUMBER COUNT-UP FOR SUMMARY FIGURES
+        ========================================================= */
+
+        function formatCurrency(num) {
+
+            return "Rs. " + Math.round(num).toLocaleString("en-US");
+
+        }
+
+        function animateCount(el) {
+
+            const target = parseFloat(el.dataset.countTo);
+
+            if (!target || prefersReducedMotion) return;
+
+            const duration = 1100;
+
+            const start = performance.now();
+
+            function tick(now) {
+
+                const progress = Math.min((now - start) / duration, 1);
+
+                const eased = 1 - Math.pow(1 - progress, 3);
+
+                el.textContent = formatCurrency(target * eased);
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(tick);
+
+                } else {
+
+                    el.textContent = formatCurrency(target);
+
+                }
+
+            }
+
+            requestAnimationFrame(tick);
+
+        }
+
+        const countEls = document.querySelectorAll("[data-count-to]");
+
+        if (prefersReducedMotion) {
+
+            countEls.forEach(el => {
+                el.textContent = formatCurrency(parseFloat(el.dataset.countTo));
+            });
+
+        } else {
+
+            const countObserver = new IntersectionObserver((entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        animateCount(entry.target);
+
+                        countObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, { threshold: 0.4 });
+
+            countEls.forEach(el => countObserver.observe(el));
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

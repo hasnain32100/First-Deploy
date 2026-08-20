@@ -1,0 +1,3077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Digital Library - IIUI Portal</title>
+
+
+<!-- =====================================================
+     TAILWIND CSS
+====================================================== -->
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+
+<!-- =====================================================
+     GOOGLE FONTS
+====================================================== -->
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap"
+rel="stylesheet">
+
+
+<!-- =====================================================
+     MATERIAL ICONS
+====================================================== -->
+
+<link
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700;1&display=swap"
+rel="stylesheet">
+
+
+<!-- =====================================================
+     TAILWIND CONFIG
+====================================================== -->
+
+<script>
+
+tailwind.config = {
+
+    darkMode: "class",
+
+    theme: {
+
+        extend: {
+
+            colors: {
+
+                primary: "#000a1e",
+
+                "primary-container": "#002147",
+
+                "on-primary": "#ffffff",
+
+                "on-primary-container": "#708ab5",
+
+                secondary: "#115cb9",
+
+                "secondary-container": "#659dfe",
+
+                "on-secondary": "#ffffff",
+
+                "on-secondary-container": "#003370",
+
+                "tertiary-container": "#002626",
+
+                "on-tertiary-container": "#2f9696",
+
+                background: "#faf9fd",
+
+                surface: "#faf9fd",
+
+                "surface-container-lowest": "#ffffff",
+
+                "surface-container-low": "#f4f3f7",
+
+                "surface-container": "#efedf1",
+
+                "surface-container-high": "#e9e7eb",
+
+                "surface-container-highest": "#e3e2e6",
+
+                "surface-variant": "#e3e2e6",
+
+                "on-background": "#1a1b1e",
+
+                "on-surface": "#1a1b1e",
+
+                "on-surface-variant": "#44474e",
+
+                outline: "#74777f",
+
+                "outline-variant": "#c4c6cf",
+
+                error: "#ba1a1a",
+
+                "error-container": "#ffdad6",
+
+                "on-error": "#ffffff",
+
+                "on-error-container": "#93000a"
+
+            },
+
+            borderRadius: {
+
+                DEFAULT: "0.25rem",
+
+                lg: "0.5rem",
+
+                xl: "0.75rem",
+
+                full: "9999px"
+
+            },
+
+            fontFamily: {
+
+                "headline-md": ["Source Serif 4"],
+
+                "headline-sm": ["Source Serif 4"],
+
+                "display-lg": ["Source Serif 4"],
+
+                "display-lg-mobile": ["Source Serif 4"],
+
+                "body-md": ["Hanken Grotesk"],
+
+                "body-lg": ["Hanken Grotesk"],
+
+                "label-md": ["Hanken Grotesk"],
+
+                caption: ["Hanken Grotesk"]
+
+            },
+
+            fontSize: {
+
+                "display-lg": [
+
+                    "48px",
+
+                    {
+
+                        lineHeight: "1.1",
+
+                        fontWeight: "700"
+
+                    }
+
+                ],
+
+                "display-lg-mobile": [
+
+                    "32px",
+
+                    {
+
+                        lineHeight: "1.2",
+
+                        fontWeight: "700"
+
+                    }
+
+                ],
+
+                "headline-sm": [
+
+                    "24px",
+
+                    {
+
+                        lineHeight: "1.4",
+
+                        fontWeight: "600"
+
+                    }
+
+                ],
+
+                "headline-md": [
+
+                    "32px",
+
+                    {
+
+                        lineHeight: "1.3",
+
+                        fontWeight: "600"
+
+                    }
+
+                ],
+
+                "body-md": [
+
+                    "16px",
+
+                    {
+
+                        lineHeight: "1.6"
+
+                    }
+
+                ],
+
+                "body-lg": [
+
+                    "18px",
+
+                    {
+
+                        lineHeight: "1.6"
+
+                    }
+
+                ],
+
+                "label-md": [
+
+                    "14px",
+
+                    {
+
+                        lineHeight: "1.2",
+
+                        letterSpacing: "0.05em",
+
+                        fontWeight: "600"
+
+                    }
+
+                ],
+
+                caption: [
+
+                    "12px",
+
+                    {
+
+                        lineHeight: "1.4",
+
+                        fontWeight: "500"
+
+                    }
+
+                ]
+
+            }
+
+        }
+
+    }
+
+};
+
+</script>
+
+
+<!-- =====================================================
+     CUSTOM CSS
+====================================================== -->
+
+<style>
+
+/* =====================================================
+   GLOBAL
+====================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: #faf9fd;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+
+/* =====================================================
+   SIDEBAR
+====================================================== */
+
+.sidebar {
+
+    width: 212px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #031c37 0%,
+            #062b52 100%
+        );
+
+    color: white;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 100;
+
+    overflow-y: auto;
+
+    box-shadow:
+        5px 0 25px rgba(0,0,0,.08);
+
+    transition:
+        transform .35s cubic-bezier(.4,0,.2,1);
+
+}
+
+
+/* Sidebar scrollbar */
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255,255,255,.15);
+
+    border-radius: 20px;
+}
+
+
+/* =====================================================
+   SIDEBAR LOGO
+====================================================== */
+
+.logo-area {
+
+    height: 84px;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
+    padding: 4px 10px 18px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+}
+
+
+.brand-logo {
+
+    width: 43px;
+    height: 54px;
+    flex: none;
+
+    border: 2px solid #e8c24f;
+    border-radius: 48% 48% 50% 50%;
+
+    display: grid;
+    place-items: center;
+
+    color: #e8c24f;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 9px;
+
+    box-shadow: inset 0 0 0 3px rgba(232,194,79,.12);
+
+    animation: logoPop .7s cubic-bezier(.34,1.56,.64,1) both;
+
+    transition: transform .4s ease;
+
+}
+
+
+.logo-area:hover .brand-logo {
+
+    transform:
+        scale(1.08)
+        rotate(-5deg);
+
+}
+
+
+.logo-text {
+
+    line-height: 1.05;
+
+}
+
+
+.logo-text strong {
+
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: .03em;
+
+}
+
+
+.logo-text small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #fff;
+
+    font-family: Georgia, serif;
+
+    font-size: 8px;
+
+    line-height: 1.25;
+
+}
+
+
+@keyframes logoPop {
+
+    0%   { opacity: 0; transform: scale(.6) rotate(-8deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+====================================================== */
+
+.navigation {
+
+    padding: 12px 8px;
+
+}
+
+
+.nav-item {
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 13px;
+
+    margin-bottom: 4px;
+
+    border-radius: 10px;
+
+    color:
+        rgba(255,255,255,.86);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: translateX(-14px);
+
+    animation: navSlideIn .5s ease forwards;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.nav-item:nth-child(1) { animation-delay: .06s; }
+.nav-item:nth-child(2) { animation-delay: .12s; }
+.nav-item:nth-child(3) { animation-delay: .18s; }
+.nav-item:nth-child(4) { animation-delay: .24s; }
+.nav-item:nth-child(5) { animation-delay: .30s; }
+.nav-item:nth-child(6) { animation-delay: .36s; }
+
+
+@keyframes navSlideIn {
+
+    from { opacity: 0; transform: translateX(-14px); }
+    to   { opacity: 1; transform: translateX(0); }
+
+}
+
+
+.nav-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255,255,255,.12);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform .3s ease;
+
+    z-index: -1;
+
+    border-radius: inherit;
+
+}
+
+
+.nav-item:hover::before {
+
+    transform: scaleX(1);
+
+}
+
+
+.nav-item:hover {
+
+    color: white;
+
+    transform:
+        translateX(4px);
+
+}
+
+
+.nav-item .material-symbols-outlined {
+
+    font-size: 21px;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.nav-item:hover
+.material-symbols-outlined {
+
+    transform:
+        scale(1.15)
+        rotate(-3deg);
+
+}
+
+
+/* =====================================================
+   ACTIVE LIBRARY
+====================================================== */
+
+.nav-item.active {
+
+    background:
+        linear-gradient(
+            90deg,
+            #1675e8,
+            #1462c7
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,100,220,.25);
+
+    transform:
+        translateX(2px);
+
+    animation:
+        navSlideIn .5s ease forwards,
+        activePulse 2.6s ease-in-out .8s infinite;
+
+}
+
+
+.nav-item.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 7px;
+
+    bottom: 7px;
+
+    width: 3px;
+
+    background: white;
+
+    border-radius:
+        0 5px 5px 0;
+
+    animation:
+        activeGlow 1.8s infinite;
+
+}
+
+
+@keyframes activeGlow {
+
+    0%,100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes activePulse {
+
+    0%,100% { box-shadow: 0 8px 20px rgba(0,100,220,.25); }
+    50%      { box-shadow: 0 8px 28px rgba(0,100,220,.45); }
+
+}
+
+
+/* =====================================================
+   ACADEMIC PROGRESS
+====================================================== */
+
+.progress-box {
+
+    margin: 12px;
+
+    padding: 16px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 13px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.035);
+
+    animation:
+        progressFloat 4s ease-in-out infinite,
+        fadeUp .6s ease .5s both;
+
+}
+
+
+@keyframes progressFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+.progress-title {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+
+.progress-circle {
+
+    width: 84px;
+
+    height: 84px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #062b52 58%,
+            transparent 60%
+        );
+
+    border:
+        7px solid #237fe7;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(35,127,231,.12);
+
+    animation:
+        progressPulse 2.5s infinite;
+
+}
+
+
+@keyframes progressPulse {
+
+    0%,100% {
+
+        box-shadow:
+            0 0 0 5px
+            rgba(35,127,231,.12);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 0 9px
+            rgba(35,127,231,.06);
+
+    }
+
+}
+
+
+.progress-circle span {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+}
+
+
+.progress-info {
+
+    margin-top: 12px;
+
+    font-size: 12px;
+
+}
+
+
+.progress-info strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    margin-top: 4px;
+
+}
+
+
+.progress-button {
+
+    width: 100%;
+
+    border: none;
+
+    margin-top: 12px;
+
+    padding: 9px;
+
+    border-radius: 7px;
+
+    color: white;
+
+    background: #0d4a91;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        all .25s ease;
+
+}
+
+
+.progress-button:hover {
+
+    background: #1675e8;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.progress-button:active {
+
+    transform: translateY(0) scale(.97);
+
+}
+
+
+/* =====================================================
+   MOBILE SIDEBAR
+====================================================== */
+
+@media(max-width:768px) {
+
+    .sidebar {
+
+        transform:
+            translateX(-100%);
+
+    }
+
+    .sidebar.open {
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE OVERLAY
+====================================================== */
+
+.sidebar-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.45);
+
+    backdrop-filter:
+        blur(2px);
+
+    z-index: 90;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+}
+
+
+.sidebar-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =====================================================
+   PAGE ANIMATION
+====================================================== */
+
+.page-enter {
+
+    animation:
+        pageEnter .8s ease both;
+
+}
+
+
+@keyframes pageEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   FADE UP
+====================================================== */
+
+.fade-up {
+
+    opacity: 0;
+
+    animation:
+        fadeUp .7s ease forwards;
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.delay-1 {
+    animation-delay: .1s;
+}
+
+.delay-2 {
+    animation-delay: .2s;
+}
+
+.delay-3 {
+    animation-delay: .3s;
+}
+
+.delay-4 {
+    animation-delay: .4s;
+}
+
+.delay-5 {
+    animation-delay: .5s;
+}
+
+
+/* =====================================================
+   SCROLL REVEAL (below-the-fold sections)
+====================================================== */
+
+.reveal-on-scroll {
+
+    opacity: 0;
+
+    transform: translateY(28px);
+
+    transition:
+        opacity .7s cubic-bezier(.22,1,.36,1),
+        transform .7s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+.reveal-on-scroll.is-visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =====================================================
+   HEADLINE GRADIENT SHIMMER
+====================================================== */
+
+.headline-gradient {
+
+    background:
+        linear-gradient(
+            90deg,
+            #000a1e,
+            #115cb9,
+            #000a1e
+        );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        gradientPan 6s linear infinite;
+
+}
+
+
+@keyframes gradientPan {
+
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+
+}
+
+
+/* =====================================================
+   GLASS PANELS
+====================================================== */
+
+.glass-panel {
+
+    background:
+        rgba(255,255,255,.72);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid rgba(255,255,255,.55);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,10,30,.05);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+.glass-panel:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,10,30,.10);
+
+}
+
+
+/* =====================================================
+   SEARCH
+====================================================== */
+
+.search-box {
+
+    transition:
+        all .3s ease;
+
+}
+
+
+.search-box:focus-within {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(17,92,185,.12);
+
+}
+
+
+.search-box .material-symbols-outlined {
+
+    transition: transform .3s ease;
+
+}
+
+
+.search-box:focus-within .material-symbols-outlined {
+
+    transform: scale(1.15) rotate(-8deg);
+
+    color: #115cb9;
+
+}
+
+
+/* =====================================================
+   CATEGORY CARDS
+====================================================== */
+
+.category-card {
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease;
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+}
+
+
+.category-card:hover {
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,10,30,.12);
+
+}
+
+
+.category-icon {
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.category-card:hover
+.category-icon {
+
+    transform:
+        rotate(8deg)
+        scale(1.15);
+
+}
+
+
+/* =====================================================
+   BOOK CARDS
+====================================================== */
+
+.book-card {
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+.book-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(0,10,30,.12);
+
+}
+
+
+.book-image {
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+.book-card:hover
+.book-image {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =====================================================
+   BUTTONS
+====================================================== */
+
+.animated-button {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.animated-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 45%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: translateX(-140%) skewX(-15deg);
+
+}
+
+
+.animated-button:hover::after {
+
+    animation: shimmerSweep 1s ease forwards;
+
+}
+
+
+@keyframes shimmerSweep {
+
+    to { transform: translateX(240%) skewX(-15deg); }
+
+}
+
+
+.animated-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,10,30,.15);
+
+}
+
+
+.animated-button:active {
+
+    transform:
+        scale(.96);
+
+}
+
+
+/* =====================================================
+   RIPPLE EFFECT
+====================================================== */
+
+.ripple-circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.55);
+
+    transform: scale(0);
+
+    animation: rippleGrow .6s ease-out;
+
+    pointer-events: none;
+
+}
+
+
+@keyframes rippleGrow {
+
+    to { transform: scale(3); opacity: 0; }
+
+}
+
+
+/* =====================================================
+   BORROWED ITEM PULSE (OVERDUE)
+====================================================== */
+
+.pulse-badge {
+
+    animation: badgePulse 2.2s ease-in-out infinite;
+
+}
+
+
+@keyframes badgePulse {
+
+    0%,100% { transform: scale(1); }
+    50%      { transform: scale(1.08); }
+
+}
+
+
+/* =====================================================
+   FLOATING SHAPES
+====================================================== */
+
+.floating-shape {
+
+    animation:
+        floating 5s ease-in-out infinite;
+
+}
+
+
+@keyframes floating {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE MENU ICON
+====================================================== */
+
+#menuIcon {
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+#menuButton.active #menuIcon {
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* =====================================================
+   TABLET / MOBILE
+====================================================== */
+
+@media(max-width:767px) {
+
+    table {
+        min-width: 700px;
+    }
+
+}
+
+
+/* =====================================================
+   SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f3f7;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #c4c6cf;
+
+    border-radius: 20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #74777f;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *, *::before, *::after {
+
+        animation-duration: .001ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .001ms !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+    .reveal-on-scroll {
+
+        opacity: 1;
+
+        transform: none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MOBILE HEADER
+====================================================== -->
+
+<header
+class="md:hidden sticky top-0 z-50 h-16 px-4 flex items-center justify-between bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+
+    <div class="flex items-center gap-3">
+
+        <div
+        class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+
+            <span class="material-symbols-outlined text-xl">
+                account_balance
+            </span>
+
+        </div>
+
+        <h1
+        class="font-headline-sm text-headline-sm text-primary font-bold">
+
+            IIUI Portal
+
+        </h1>
+
+    </div>
+
+
+    <button
+    id="menuButton"
+    type="button"
+    aria-label="Open navigation menu"
+    class="p-2 rounded-lg text-on-surface hover:bg-surface-container-high transition">
+
+        <span
+        id="menuIcon"
+        class="material-symbols-outlined">
+
+            menu
+
+        </span>
+
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE OVERLAY
+====================================================== -->
+
+<div
+id="sidebarOverlay"
+class="sidebar-overlay md:hidden">
+</div>
+
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside
+class="sidebar"
+id="sidebar">
+
+
+    <!-- =================================================
+         LOGO
+    ================================================== -->
+
+    <div class="logo-area">
+
+        <div class="brand-logo">IIU</div>
+
+
+        <div class="logo-text">
+
+            <strong>
+                IBADAT
+            </strong>
+
+            <small>INTERNATIONAL<br>UNIVERSITY<br>ISLAMABAD</small>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================== -->
+
+    <nav class="navigation">
+
+
+        <!-- DASHBOARD -->
+
+        <a
+        href="dashboard.html"
+        class="nav-item">
+
+            <span class="material-symbols-outlined">
+                home
+            </span>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <!-- COURSES -->
+
+        <a
+        href="course.html"
+        class="nav-item">
+
+            <span class="material-symbols-outlined">
+                menu_book
+            </span>
+
+            <span>
+                My Courses
+            </span>
+
+        </a>
+
+
+        <!-- ATTENDANCE -->
+
+        <a
+        href="attendence.html"
+        class="nav-item">
+
+            <span class="material-symbols-outlined">
+                check_circle
+            </span>
+
+            <span>
+                Attendance
+            </span>
+
+        </a>
+
+
+        <!-- FINANCIALS -->
+
+        <a
+        href="finanial.html"
+        class="nav-item">
+
+            <span class="material-symbols-outlined">
+                school
+            </span>
+
+            <span>
+                Financials
+            </span>
+
+        </a>
+
+
+        <!-- LIBRARY ACTIVE -->
+
+        <a
+        href="library.html"
+        class="nav-item active">
+
+            <span class="material-symbols-outlined">
+                local_library
+            </span>
+
+            <span>
+                Library
+            </span>
+
+        </a>
+
+
+        <!-- SETTINGS -->
+
+        <a
+        href="setting.html"
+        class="nav-item">
+
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+
+            <span>
+                Settings
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- =================================================
+         ACADEMIC PROGRESS
+    ================================================== -->
+
+    <div class="progress-box">
+
+        <div class="progress-title">
+
+            Academic Progress
+
+        </div>
+
+
+        <div class="progress-circle">
+
+            <span
+            data-count-to="78"
+            data-suffix="%">
+                78%
+            </span>
+
+        </div>
+
+
+        <div class="progress-info">
+
+            Credits Completed
+
+            <strong
+            data-count-to="93"
+            data-suffix=" / 120">
+                93 / 120
+            </strong>
+
+        </div>
+
+
+        <button
+        class="progress-button">
+
+            View Progress
+
+        </button>
+
+    </div>
+
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main
+class="md:ml-[212px] min-h-screen flex flex-col page-enter">
+
+
+<div
+class="flex-1 pt-8 md:pt-12 px-5 md:px-16 pb-20 max-w-[1280px] mx-auto w-full">
+
+
+    <!-- =================================================
+         LIBRARY HEADER
+    ================================================== -->
+
+    <section
+    class="mb-12 fade-up">
+
+
+        <div class="relative">
+
+
+            <!-- FLOATING DECORATION -->
+
+            <div
+            class="floating-shape absolute -right-5 -top-10 w-24 h-24 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none">
+            </div>
+
+
+            <h1
+            class="headline-gradient font-display-lg-mobile md:font-display-lg mb-4">
+
+                Digital Library
+
+            </h1>
+
+
+            <p
+            class="font-body-lg text-on-surface-variant max-w-2xl">
+
+                Access thousands of e-books, research papers,
+                and journals tailored to your academic journey.
+
+            </p>
+
+
+        </div>
+
+
+        <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+        <div
+        class="search-box relative max-w-3xl mt-8">
+
+
+            <input
+            id="librarySearch"
+            type="text"
+            placeholder="Search the catalog..."
+            class="w-full h-14 pl-12 pr-12 bg-white rounded-xl border border-outline-variant focus:border-secondary focus:ring-2 focus:ring-secondary/20 focus:outline-none font-body-md shadow-sm">
+
+
+            <span
+            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">
+
+                search
+
+            </span>
+
+
+            <button
+            id="clearSearch"
+            class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full hover:bg-surface-container-high items-center justify-center">
+
+                <span class="material-symbols-outlined text-sm">
+                    close
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CATEGORIES
+    ================================================== -->
+
+    <section class="mb-16">
+
+
+        <div
+        class="flex items-center justify-between mb-6 fade-up delay-1">
+
+
+            <h2
+            class="font-headline-sm text-headline-sm text-primary">
+
+                Browse by Category
+
+            </h2>
+
+
+            <span
+            class="hidden sm:block font-caption text-caption text-on-surface-variant">
+
+                Explore resources
+
+            </span>
+
+
+        </div>
+
+
+        <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+
+            <!-- EBOOKS -->
+
+            <a
+            href="#"
+            class="category-card tilt-card glass-panel p-6 rounded-xl relative overflow-hidden h-52 flex flex-col justify-end fade-up delay-1">
+
+
+                <div
+                class="category-icon absolute top-5 right-5 bg-secondary-container text-on-secondary-container p-3 rounded-full">
+
+                    <span class="material-symbols-outlined">
+                        menu_book
+                    </span>
+
+                </div>
+
+
+                <div
+                class="absolute -right-10 -top-10 w-32 h-32 bg-secondary-container/10 rounded-full blur-2xl">
+                </div>
+
+
+                <div class="relative z-10">
+
+                    <h3
+                    class="font-headline-sm text-headline-sm text-primary mb-2">
+
+                        E-Books
+
+                    </h3>
+
+                    <p
+                    class="font-body-md text-on-surface-variant">
+
+                        Over 50,000 titles
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- RESEARCH -->
+
+            <a
+            href="#"
+            class="category-card tilt-card glass-panel p-6 rounded-xl relative overflow-hidden h-52 flex flex-col justify-end fade-up delay-2">
+
+
+                <div
+                class="category-icon absolute top-5 right-5 bg-tertiary-container text-on-tertiary-container p-3 rounded-full">
+
+                    <span class="material-symbols-outlined">
+                        article
+                    </span>
+
+                </div>
+
+
+                <div
+                class="absolute -right-10 -top-10 w-32 h-32 bg-teal-300/10 rounded-full blur-2xl">
+                </div>
+
+
+                <div class="relative z-10">
+
+                    <h3
+                    class="font-headline-sm text-headline-sm text-primary mb-2">
+
+                        Research Papers
+
+                    </h3>
+
+                    <p
+                    class="font-body-md text-on-surface-variant">
+
+                        Latest publications
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- JOURNALS -->
+
+            <a
+            href="#"
+            class="category-card tilt-card glass-panel p-6 rounded-xl relative overflow-hidden h-52 flex flex-col justify-end fade-up delay-3">
+
+
+                <div
+                class="category-icon absolute top-5 right-5 bg-primary-container text-white p-3 rounded-full">
+
+                    <span class="material-symbols-outlined">
+                        collections_bookmark
+                    </span>
+
+                </div>
+
+
+                <div
+                class="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl">
+                </div>
+
+
+                <div class="relative z-10">
+
+                    <h3
+                    class="font-headline-sm text-headline-sm text-primary mb-2">
+
+                        Journals
+
+                    </h3>
+
+                    <p
+                    class="font-body-md text-on-surface-variant">
+
+                        Peer-reviewed articles
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MAIN LIBRARY GRID
+    ================================================== -->
+
+    <div
+    class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+
+
+        <!-- =================================================
+             FEATURED RESOURCES
+        ================================================== -->
+
+        <section
+        class="lg:col-span-2">
+
+
+            <div
+            class="flex justify-between items-end mb-6 border-b border-outline-variant pb-3 fade-up">
+
+
+                <h2
+                class="font-headline-sm text-headline-sm text-primary">
+
+                    Featured Resources
+
+                </h2>
+
+
+                <a
+                href="#"
+                class="font-label-md text-label-md text-secondary hover:underline">
+
+                    View All
+
+                </a>
+
+
+            </div>
+
+
+            <div
+            id="bookGrid"
+            class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+
+                <!-- =================================================
+                     BOOK 1
+                ================================================== -->
+
+                <article
+                class="book-card reveal-on-scroll bg-white rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+
+
+                    <div
+                    class="book-image bg-cover bg-center w-full h-48 relative overflow-hidden"
+                    style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDN004Hq_Vl7TCcotHx2Mj09ck-orutlNv4QvzaqaYX_QFAv6o3k3tDBgM6waWqRVRXyL33ml-r3kwBjOlaWew8uNUIdwn-1cESJpN7rTcUgN_i7IJRHT71BqUuY-xRIZD-mhcHcN7sIHdcM6BY1H0h9JC942Xaxy-LRGNZR97fqraut9HQqEL1ZNugLcLIctUGN1KBIk8UZpsWlpKCvcqdfUL9t2bugMXnDAsoWBhv5X-FXNC-nnJ')">
+
+
+                        <div
+                        class="absolute inset-0 bg-primary/10">
+                        </div>
+
+
+                        <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-tertiary-container">
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="p-5">
+
+
+                        <h3
+                        class="font-headline-sm text-headline-sm text-primary mb-1">
+
+                            Advanced Data Structures
+
+                        </h3>
+
+
+                        <p
+                        class="font-caption text-caption text-on-surface-variant mb-4">
+
+                            Dr. A. Rahman | Computer Science
+
+                        </p>
+
+
+                        <p
+                        class="font-body-md text-on-surface mb-6">
+
+                            A comprehensive guide to complex algorithms
+                            and data structures for modern computing.
+
+                        </p>
+
+
+                        <button
+                        class="animated-button w-full py-3 bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary/90">
+
+                            Read Now
+
+                        </button>
+
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     BOOK 2
+                ================================================== -->
+
+                <article
+                class="book-card reveal-on-scroll bg-white rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+
+
+                    <div
+                    class="book-image bg-cover bg-center w-full h-48 relative overflow-hidden"
+                    style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuACDUWSmML6623LLphylvA5uTz5Nv0tHMaunL70J2oihfmGAaC8rS2ktPoHx4c0DDa0YCgDFYuLoXrUV1YXE7Rw9wV1XXWzllhwOH0etQ4MCZLJPKOCyiX1ZbuOoDQVj0yabE_mqE_kzbJQ-O5jP-6YE095go2LpcJ19f4Sfoibc-NjNXIhVm78fmh9Xr-cXTJS6X4ilBzYWb0IWeNZqKuheV_AzxKmDDYwG2njPyRQoQcCEnpHzmhE')">
+
+
+                        <div
+                        class="absolute inset-0 bg-primary/10">
+                        </div>
+
+
+                        <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-tertiary-container">
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="p-5">
+
+
+                        <h3
+                        class="font-headline-sm text-headline-sm text-primary mb-1">
+
+                            Modern Macroeconomics
+
+                        </h3>
+
+
+                        <p
+                        class="font-caption text-caption text-on-surface-variant mb-4">
+
+                            Prof. S. Khan | Economics
+
+                        </p>
+
+
+                        <p
+                        class="font-body-md text-on-surface mb-6">
+
+                            Analyzing global economic trends and policies
+                            in the 21st century landscape.
+
+                        </p>
+
+
+                        <button
+                        class="animated-button w-full py-3 bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary/90">
+
+                            Read Now
+
+                        </button>
+
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     BOOK 3
+                ================================================== -->
+
+                <article
+                class="book-card reveal-on-scroll bg-white rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+
+
+                    <div
+                    class="h-48 bg-gradient-to-br from-primary-container to-secondary relative overflow-hidden flex items-center justify-center">
+
+                        <span
+                        class="material-symbols-outlined text-white text-7xl opacity-80">
+
+                            psychology
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="p-5">
+
+
+                        <h3
+                        class="font-headline-sm text-headline-sm text-primary mb-1">
+
+                            Artificial Intelligence
+
+                        </h3>
+
+
+                        <p
+                        class="font-caption text-caption text-on-surface-variant mb-4">
+
+                            Dr. M. Ahmed | Artificial Intelligence
+
+                        </p>
+
+
+                        <p
+                        class="font-body-md text-on-surface mb-6">
+
+                            Explore machine learning, neural networks,
+                            and modern intelligent systems.
+
+                        </p>
+
+
+                        <button
+                        class="animated-button w-full py-3 bg-primary text-on-primary rounded-lg font-label-md">
+
+                            Read Now
+
+                        </button>
+
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     BOOK 4
+                ================================================== -->
+
+                <article
+                class="book-card reveal-on-scroll bg-white rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+
+
+                    <div
+                    class="h-48 bg-gradient-to-br from-secondary to-primary-container relative overflow-hidden flex items-center justify-center">
+
+                        <span
+                        class="material-symbols-outlined text-white text-7xl opacity-80">
+
+                            code
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="p-5">
+
+
+                        <h3
+                        class="font-headline-sm text-headline-sm text-primary mb-1">
+
+                            Software Engineering
+
+                        </h3>
+
+
+                        <p
+                        class="font-caption text-caption text-on-surface-variant mb-4">
+
+                            Prof. H. Ali | Software Engineering
+
+                        </p>
+
+
+                        <p
+                        class="font-body-md text-on-surface mb-6">
+
+                            Modern software development practices,
+                            architecture, testing, and project management.
+
+                        </p>
+
+
+                        <button
+                        class="animated-button w-full py-3 bg-primary text-on-primary rounded-lg font-label-md">
+
+                            Read Now
+
+                        </button>
+
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CURRENTLY BORROWED
+        ================================================== -->
+
+        <aside>
+
+
+            <div
+            class="glass-panel reveal-on-scroll rounded-xl p-6 h-full">
+
+
+                <div
+                class="flex items-center gap-3 mb-6 pb-4 border-b border-outline-variant/50">
+
+
+                    <div
+                    class="w-10 h-10 rounded-lg bg-secondary-container/30 flex items-center justify-center">
+
+                        <span
+                        class="material-symbols-outlined text-secondary">
+
+                            bookmark
+
+                        </span>
+
+                    </div>
+
+
+                    <h2
+                    class="font-headline-sm text-headline-sm text-primary">
+
+                        Currently Borrowed
+
+                    </h2>
+
+
+                </div>
+
+
+                <div class="flex flex-col gap-4">
+
+
+                    <!-- BORROWED 1 -->
+
+                    <div
+                    class="p-4 bg-surface rounded-lg border border-outline-variant/30 relative overflow-hidden hover:-translate-y-1 transition-transform">
+
+
+                        <div
+                        class="absolute left-0 top-0 bottom-0 w-1 bg-secondary">
+                        </div>
+
+
+                        <h4
+                        class="font-label-md text-primary mb-2">
+
+                            Introduction to AI
+
+                        </h4>
+
+
+                        <div
+                        class="flex justify-between items-center mb-3 gap-2">
+
+
+                            <span
+                            class="font-caption text-on-surface-variant">
+
+                                Due: Oct 15, 2024
+
+                            </span>
+
+
+                            <span
+                            class="px-2 py-1 bg-secondary-container/50 text-on-secondary-container rounded font-caption text-[10px] whitespace-nowrap">
+
+                                3 Days Left
+
+                            </span>
+
+
+                        </div>
+
+
+                        <button
+                        class="animated-button w-full py-2 border border-secondary text-secondary rounded bg-transparent font-label-md hover:bg-secondary hover:text-white">
+
+                            Return
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- BORROWED 2 -->
+
+                    <div
+                    class="p-4 bg-surface rounded-lg border border-outline-variant/30 relative overflow-hidden hover:-translate-y-1 transition-transform">
+
+
+                        <div
+                        class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container">
+                        </div>
+
+
+                        <h4
+                        class="font-label-md text-primary mb-2">
+
+                            Islamic Jurisprudence
+
+                        </h4>
+
+
+                        <div
+                        class="flex justify-between items-center mb-3 gap-2">
+
+
+                            <span
+                            class="font-caption text-on-surface-variant">
+
+                                Due: Oct 20, 2024
+
+                            </span>
+
+
+                            <span
+                            class="px-2 py-1 bg-surface-container text-on-surface-variant rounded font-caption text-[10px] whitespace-nowrap">
+
+                                8 Days Left
+
+                            </span>
+
+
+                        </div>
+
+
+                        <button
+                        class="animated-button w-full py-2 border border-secondary text-secondary rounded bg-transparent font-label-md hover:bg-secondary hover:text-white">
+
+                            Return
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- BORROWED 3 -->
+
+                    <div
+                    class="p-4 bg-surface rounded-lg border border-outline-variant/30 relative overflow-hidden hover:-translate-y-1 transition-transform">
+
+
+                        <div
+                        class="absolute left-0 top-0 bottom-0 w-1 bg-error">
+                        </div>
+
+
+                        <h4
+                        class="font-label-md text-primary mb-2">
+
+                            Quantum Physics
+
+                        </h4>
+
+
+                        <div
+                        class="flex justify-between items-center mb-3 gap-2">
+
+
+                            <span
+                            class="font-caption text-error">
+
+                                Due: Oct 10, 2024
+
+                            </span>
+
+
+                            <span
+                            class="pulse-badge px-2 py-1 bg-error-container text-on-error-container rounded font-caption text-[10px] whitespace-nowrap">
+
+                                Overdue
+
+                            </span>
+
+
+                        </div>
+
+
+                        <button
+                        class="animated-button w-full py-2 border border-error text-error rounded bg-transparent font-label-md hover:bg-error hover:text-white">
+
+                            Return Now
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer
+class="w-full bg-primary text-on-primary px-5 md:px-16 py-12">
+
+
+<div
+class="max-w-[1280px] mx-auto">
+
+
+<div
+class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+
+    <div
+    class="md:col-span-4 border-b border-white/20 pb-5">
+
+
+        <div
+        class="font-headline-sm text-headline-sm font-bold">
+
+            IIUI Portal
+
+        </div>
+
+
+        <p
+        class="text-on-primary-container mt-2">
+
+            Your academic portal for managing university activities.
+
+        </p>
+
+
+    </div>
+
+
+    <a
+    href="#"
+    class="font-label-md text-on-primary-container hover:text-white transition">
+
+        Academic Calendar
+
+    </a>
+
+
+    <a
+    href="#"
+    class="font-label-md text-on-primary-container hover:text-white transition">
+
+        Accreditation
+
+    </a>
+
+
+    <a
+    href="#"
+    class="font-label-md text-on-primary-container hover:text-white transition">
+
+        Career Services
+
+    </a>
+
+
+    <a
+    href="#"
+    class="font-label-md text-on-primary-container hover:text-white transition">
+
+        Privacy Policy
+
+    </a>
+
+
+    <a
+    href="#"
+    class="font-label-md text-on-primary-container hover:text-white transition">
+
+        Contact Us
+
+    </a>
+
+
+    <div
+    class="md:col-span-4 mt-4 pt-6 border-t border-white/20">
+
+
+        <p
+        class="font-body-md text-on-primary-container">
+
+            © 2024 Ibadat International University Islamabad.
+            All Rights Reserved.
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+</footer>
+
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ELEMENTS
+====================================================== */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const sidebar =
+    document.getElementById("sidebar");
+
+const menuIcon =
+    document.getElementById("menuIcon");
+
+const sidebarOverlay =
+    document.getElementById("sidebarOverlay");
+
+
+/* =====================================================
+   SIDEBAR TOGGLE
+====================================================== */
+
+function toggleSidebar() {
+
+    sidebar.classList.toggle("open");
+
+    menuButton.classList.toggle("active");
+
+
+    if (
+        sidebar.classList.contains("open")
+    ) {
+
+        menuIcon.textContent = "close";
+
+        sidebarOverlay.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+    else {
+
+        menuIcon.textContent = "menu";
+
+        sidebarOverlay.classList.remove("active");
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =====================================================
+   MENU BUTTON
+====================================================== */
+
+menuButton.addEventListener(
+    "click",
+    toggleSidebar
+);
+
+
+/* =====================================================
+   OVERLAY
+====================================================== */
+
+sidebarOverlay.addEventListener(
+    "click",
+    toggleSidebar
+);
+
+
+/* =====================================================
+   CLOSE SIDEBAR AFTER NAVIGATION
+====================================================== */
+
+document
+.querySelectorAll(".nav-item")
+.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            if (
+                window.innerWidth < 768
+            ) {
+
+                sidebar.classList.remove("open");
+
+                menuButton.classList.remove("active");
+
+                menuIcon.textContent =
+                    "menu";
+
+                sidebarOverlay.classList.remove("active");
+
+                document.body.style.overflow =
+                    "";
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   WINDOW RESIZE
+====================================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (
+            window.innerWidth >= 768
+        ) {
+
+            sidebar.classList.remove("open");
+
+            menuButton.classList.remove("active");
+
+            menuIcon.textContent =
+                "menu";
+
+            sidebarOverlay.classList.remove("active");
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LIBRARY SEARCH
+====================================================== */
+
+const searchInput =
+    document.getElementById("librarySearch");
+
+const clearSearch =
+    document.getElementById("clearSearch");
+
+const bookGrid =
+    document.getElementById("bookGrid");
+
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+        const query =
+            this.value
+            .toLowerCase()
+            .trim();
+
+
+        clearSearch.classList.toggle(
+            "hidden",
+            query === ""
+        );
+
+
+        const books =
+            bookGrid.querySelectorAll(
+                ".book-card"
+            );
+
+
+        books.forEach(
+            book => {
+
+                const text =
+                    book.textContent
+                    .toLowerCase();
+
+
+                if (
+                    text.includes(query)
+                ) {
+
+                    book.style.display =
+                        "";
+
+                    book.classList.add(
+                        "is-visible"
+                    );
+
+                }
+
+                else {
+
+                    book.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR SEARCH
+====================================================== */
+
+clearSearch.addEventListener(
+    "click",
+    function() {
+
+        searchInput.value = "";
+
+        this.classList.add("hidden");
+
+        const books =
+            bookGrid.querySelectorAll(
+                ".book-card"
+            );
+
+
+        books.forEach(
+            book => {
+
+                book.style.display =
+                    "";
+
+            }
+        );
+
+
+        searchInput.focus();
+
+    }
+);
+
+
+/* =====================================================
+   BUTTON RIPPLE EFFECT
+====================================================== */
+
+document
+.querySelectorAll(".animated-button, .progress-button")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(e) {
+
+            const r = this.getBoundingClientRect();
+
+            const size = Math.max(r.width, r.height);
+
+            const circle = document.createElement("span");
+
+            circle.className = "ripple-circle";
+
+            circle.style.width =
+                circle.style.height = size + "px";
+
+            circle.style.left =
+                (e.clientX - r.left - size / 2) + "px";
+
+            circle.style.top =
+                (e.clientY - r.top - size / 2) + "px";
+
+            this.appendChild(circle);
+
+            setTimeout(() => circle.remove(), 650);
+
+
+            this.style.transform =
+                "scale(.96)";
+
+            setTimeout(
+                () => {
+
+                    this.style.transform =
+                        "";
+
+                },
+                150
+            );
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   3D TILT ON CATEGORY CARDS
+====================================================== */
+
+document
+.querySelectorAll(".tilt-card")
+.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        const r = card.getBoundingClientRect();
+
+        const x = e.clientX - r.left;
+
+        const y = e.clientY - r.top;
+
+        const rx = ((y / r.height) - .5) * -8;
+
+        const ry = ((x / r.width) - .5) * 8;
+
+        card.style.transform =
+            `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-10px) scale(1.02)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+    });
+
+});
+
+
+/* =====================================================
+   SCROLL-TRIGGERED REVEAL
+====================================================== */
+
+const prefersReducedMotion =
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const revealEls =
+    document.querySelectorAll(".reveal-on-scroll");
+
+if (prefersReducedMotion) {
+
+    revealEls.forEach(el => el.classList.add("is-visible"));
+
+} else {
+
+    const revealObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry, i) => {
+
+            if (entry.isIntersecting) {
+
+                setTimeout(() => {
+
+                    entry.target.classList.add("is-visible");
+
+                }, i * 90);
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, { threshold: .15, rootMargin: "0px 0px -40px 0px" });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+}
+
+
+/* =====================================================
+   ANIMATED COUNT-UP FOR PROGRESS FIGURES
+====================================================== */
+
+function animateCountEl(el) {
+
+    const target = parseFloat(el.dataset.countTo);
+
+    const suffix = el.dataset.suffix || "";
+
+    if (isNaN(target) || prefersReducedMotion) return;
+
+    const duration = 1100;
+
+    const start = performance.now();
+
+    function tick(now) {
+
+        const progress = Math.min((now - start) / duration, 1);
+
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        el.textContent = Math.round(target * eased) + suffix;
+
+        if (progress < 1) {
+
+            requestAnimationFrame(tick);
+
+        } else {
+
+            el.textContent = Math.round(target) + suffix;
+
+        }
+
+    }
+
+    requestAnimationFrame(tick);
+
+}
+
+const countEls =
+    document.querySelectorAll("[data-count-to]");
+
+if (prefersReducedMotion) {
+
+    countEls.forEach(el => {
+        el.textContent =
+            Math.round(parseFloat(el.dataset.countTo)) +
+            (el.dataset.suffix || "");
+    });
+
+} else {
+
+    const countObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                animateCountEl(entry.target);
+
+                countObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, { threshold: .4 });
+
+    countEls.forEach(el => countObserver.observe(el));
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings - IIUI Portal</title>
+
+
+    <!-- ================= TAILWIND CSS ================= -->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ================= MATERIAL ICONS ================= -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700;1&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ================= TAILWIND CONFIG ================= -->
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: "class",
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        "on-secondary-container": "#003370",
+
+                        "tertiary-fixed": "#93f2f2",
+
+                        "tertiary-fixed-dim": "#76d6d5",
+
+                        "tertiary-container": "#002626",
+
+                        "outline-variant": "#c4c6cf",
+
+                        "on-tertiary-fixed": "#002020",
+
+                        "on-primary-fixed-variant": "#2d476f",
+
+                        "error": "#ba1a1a",
+
+                        "on-surface-variant": "#44474e",
+
+                        "secondary-container": "#659dfe",
+
+                        "background": "#faf9fd",
+
+                        "on-primary-fixed": "#001b3d",
+
+                        "error-container": "#ffdad6",
+
+                        "on-error-container": "#93000a",
+
+                        "primary-container": "#002147",
+
+                        "primary-fixed-dim": "#aec7f6",
+
+                        "surface-container-highest": "#e3e2e6",
+
+                        "outline": "#74777f",
+
+                        "surface-container-high": "#e9e7eb",
+
+                        "surface-container-lowest": "#ffffff",
+
+                        "inverse-on-surface": "#f1f0f4",
+
+                        "on-background": "#1a1b1e",
+
+                        "primary-fixed": "#d6e3ff",
+
+                        "on-tertiary-container": "#2f9696",
+
+                        "on-tertiary": "#ffffff",
+
+                        "secondary-fixed-dim": "#acc7ff",
+
+                        "surface-bright": "#faf9fd",
+
+                        "on-secondary-fixed-variant": "#004491",
+
+                        "on-primary": "#ffffff",
+
+                        "surface-tint": "#465f88",
+
+                        "surface-container": "#efedf1",
+
+                        "primary": "#000a1e",
+
+                        "secondary": "#115cb9",
+
+                        "surface-variant": "#e3e2e6",
+
+                        "on-error": "#ffffff",
+
+                        "surface": "#faf9fd",
+
+                        "on-secondary": "#ffffff",
+
+                        "surface-dim": "#dad9dd",
+
+                        "on-surface": "#1a1b1e",
+
+                        "inverse-surface": "#2f3033",
+
+                        "secondary-fixed": "#d7e2ff"
+
+                    },
+
+
+                    borderRadius: {
+
+                        DEFAULT: "0.25rem",
+
+                        lg: "0.5rem",
+
+                        xl: "0.75rem",
+
+                        full: "9999px"
+
+                    },
+
+
+                    spacing: {
+
+                        "container-max": "1280px",
+
+                        "margin-desktop": "64px",
+
+                        "margin-mobile": "20px",
+
+                        "gutter": "24px",
+
+                        "base": "8px"
+
+                    },
+
+
+                    fontFamily: {
+
+                        "label-md": ["Hanken Grotesk"],
+
+                        "body-lg": ["Hanken Grotesk"],
+
+                        "body-md": ["Hanken Grotesk"],
+
+                        "display-lg-mobile": ["Source Serif 4"],
+
+                        "headline-sm": ["Source Serif 4"],
+
+                        "display-lg": ["Source Serif 4"],
+
+                        "headline-md": ["Source Serif 4"],
+
+                        "caption": ["Hanken Grotesk"]
+
+                    },
+
+
+                    fontSize: {
+
+                        "label-md": [
+
+                            "14px",
+
+                            {
+
+                                lineHeight: "1.2",
+
+                                letterSpacing: "0.05em",
+
+                                fontWeight: "600"
+
+                            }
+
+                        ],
+
+
+                        "body-lg": [
+
+                            "18px",
+
+                            {
+
+                                lineHeight: "1.6",
+
+                                fontWeight: "400"
+
+                            }
+
+                        ],
+
+
+                        "body-md": [
+
+                            "16px",
+
+                            {
+
+                                lineHeight: "1.6",
+
+                                fontWeight: "400"
+
+                            }
+
+                        ],
+
+
+                        "display-lg-mobile": [
+
+                            "32px",
+
+                            {
+
+                                lineHeight: "1.2",
+
+                                fontWeight: "700"
+
+                            }
+
+                        ],
+
+
+                        "headline-sm": [
+
+                            "24px",
+
+                            {
+
+                                lineHeight: "1.4",
+
+                                fontWeight: "600"
+
+                            }
+
+                        ],
+
+
+                        "display-lg": [
+
+                            "48px",
+
+                            {
+
+                                lineHeight: "1.1",
+
+                                letterSpacing: "-0.02em",
+
+                                fontWeight: "700"
+
+                            }
+
+                        ],
+
+
+                        "headline-md": [
+
+                            "32px",
+
+                            {
+
+                                lineHeight: "1.3",
+
+                                fontWeight: "600"
+
+                            }
+
+                        ],
+
+
+                        "caption": [
+
+                            "12px",
+
+                            {
+
+                                lineHeight: "1.4",
+
+                                fontWeight: "500"
+
+                            }
+
+                        ]
+
+                    }
+
+                }
+
+            }
+
+        };
+
+    </script>
+
+
+    <!-- ================= CUSTOM CSS ================= -->
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        /* ================= GLASS PANEL ================= */
+
+        .glass-panel {
+
+            background: rgba(255, 255, 255, 0.7);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 0.5px solid rgba(255, 255, 255, 0.5);
+
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+
+            transition: box-shadow .35s ease, transform .35s ease;
+
+        }
+
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+
+            width: 212px;
+
+            background: linear-gradient(
+                180deg,
+                #031c37 0%,
+                #062b52 100%
+            );
+
+            color: white;
+
+            position: fixed;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            z-index: 100;
+
+            overflow-y: auto;
+
+            font-family: "Hanken Grotesk", sans-serif;
+
+        }
+
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+
+        .sidebar::-webkit-scrollbar-thumb {
+
+            background: rgba(255,255,255,.15);
+
+        }
+
+
+        /* ================= LOGO ================= */
+
+        .sidebar .logo-area {
+
+            height: 84px;
+
+            display: flex;
+
+            gap: 10px;
+
+            align-items: flex-start;
+
+            padding: 4px 10px 18px;
+
+            border-bottom: 1px solid rgba(255,255,255,.12);
+
+        }
+
+
+        .sidebar .brand-logo {
+
+            width: 43px;
+            height: 54px;
+            flex: none;
+
+            border: 2px solid #e8c24f;
+            border-radius: 48% 48% 50% 50%;
+
+            display: grid;
+            place-items: center;
+
+            color: #e8c24f;
+            font-family: Georgia, serif;
+            font-weight: 700;
+            font-size: 9px;
+
+            box-shadow: inset 0 0 0 3px rgba(232,194,79,.12);
+
+            animation: logoPop .7s cubic-bezier(.34,1.56,.64,1) both;
+
+            transition: transform .4s ease;
+
+        }
+
+
+        .sidebar .logo-area:hover .brand-logo {
+
+            transform: scale(1.08) rotate(-5deg);
+
+        }
+
+
+        .sidebar .logo-text {
+
+            line-height: 1.05;
+
+        }
+
+
+        .sidebar .logo-text strong {
+
+            display: block;
+
+            font-family: Georgia, serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            letter-spacing: .03em;
+
+        }
+
+
+        .sidebar .logo-text small {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: #fff;
+
+            font-family: Georgia, serif;
+
+            font-size: 8px;
+
+            line-height: 1.25;
+
+        }
+
+
+        @keyframes logoPop {
+
+            0%   { opacity: 0; transform: scale(.6) rotate(-8deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        .sidebar .navigation {
+
+            padding: 12px 8px;
+
+        }
+
+
+        .sidebar .nav-item {
+
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 0 13px;
+
+            margin-bottom: 4px;
+
+            border-radius: 10px;
+
+            color: rgba(255,255,255,.86);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            transform: translateX(-14px);
+
+            animation: navSlideIn .5s ease forwards;
+
+            transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+
+        }
+
+
+        .sidebar .nav-item:nth-child(1) { animation-delay: .06s; }
+        .sidebar .nav-item:nth-child(2) { animation-delay: .12s; }
+        .sidebar .nav-item:nth-child(3) { animation-delay: .18s; }
+        .sidebar .nav-item:nth-child(4) { animation-delay: .24s; }
+        .sidebar .nav-item:nth-child(5) { animation-delay: .30s; }
+        .sidebar .nav-item:nth-child(6) { animation-delay: .36s; }
+
+
+        @keyframes navSlideIn {
+
+            from { opacity: 0; transform: translateX(-14px); }
+            to   { opacity: 1; transform: translateX(0); }
+
+        }
+
+
+        .sidebar .nav-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(255,255,255,.12);
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: transform .3s ease;
+
+            z-index: -1;
+
+            border-radius: inherit;
+
+        }
+
+
+        .sidebar .nav-item:hover::before {
+
+            transform: scaleX(1);
+
+        }
+
+
+        .sidebar .nav-item:hover {
+
+            background: rgba(255,255,255,.09);
+
+            color: white;
+
+            transform: translateX(3px);
+
+        }
+
+
+        .sidebar .nav-item .material-symbols-outlined {
+
+            font-size: 21px;
+
+            transition: transform .3s ease;
+
+        }
+
+
+        .sidebar .nav-item:hover .material-symbols-outlined {
+
+            transform: scale(1.15) rotate(-3deg);
+
+        }
+
+
+        .sidebar .nav-item.active {
+
+            background: linear-gradient(
+                90deg,
+                #1675e8,
+                #1462c7
+            );
+
+            color: white;
+
+            box-shadow: 0 8px 20px rgba(0,100,220,.25);
+
+            animation: navSlideIn .5s ease forwards, activePulse 2.6s ease-in-out .8s infinite;
+
+        }
+
+
+        @keyframes activePulse {
+
+            0%,100% { box-shadow: 0 8px 20px rgba(0,100,220,.25); }
+            50%      { box-shadow: 0 8px 28px rgba(0,100,220,.45); }
+
+        }
+
+
+        /* ================= PROGRESS BOX ================= */
+
+        .sidebar .progress-box {
+
+            margin: 12px;
+
+            padding: 16px;
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            border-radius: 13px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,.035);
+
+            animation: progressFloat 4s ease-in-out infinite, fadeUp .6s ease .5s both;
+
+        }
+
+
+        @keyframes progressFloat {
+
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-3px); }
+
+        }
+
+
+        .sidebar .progress-title {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .sidebar .progress-circle {
+
+            width: 84px;
+            height: 84px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: radial-gradient(
+                circle,
+                #062b52 58%,
+                transparent 60%
+            );
+
+            border: 7px solid #237fe7;
+
+            box-shadow: 0 0 0 5px rgba(35,127,231,.12);
+
+            animation: progressPulse 2.5s infinite;
+
+        }
+
+
+        @keyframes progressPulse {
+
+            0%,100% { box-shadow: 0 0 0 5px rgba(35,127,231,.12); }
+            50%      { box-shadow: 0 0 0 9px rgba(35,127,231,.06); }
+
+        }
+
+
+        .sidebar .progress-circle span {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: white;
+
+        }
+
+
+        .sidebar .progress-info {
+
+            margin-top: 12px;
+
+            font-size: 12px;
+
+        }
+
+
+        .sidebar .progress-info strong {
+
+            display: block;
+
+            font-size: 15px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .sidebar .progress-button {
+
+            width: 100%;
+
+            border: none;
+
+            margin-top: 12px;
+
+            padding: 9px;
+
+            border-radius: 7px;
+
+            color: white;
+
+            background: #0d4a91;
+
+            cursor: pointer;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: .25s ease;
+
+        }
+
+
+        .sidebar .progress-button:hover {
+
+            background: #1462c7;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .sidebar .progress-button:active {
+
+            transform: translateY(0) scale(.97);
+
+        }
+
+
+        /* ================= MOBILE SIDEBAR ================= */
+
+        @media(max-width:768px) {
+
+            .sidebar {
+
+                transform: translateX(-100%);
+
+                transition: .3s ease;
+
+            }
+
+
+            .sidebar.open {
+
+                transform: translateX(0);
+
+            }
+
+        }
+
+
+        /* ================= MOBILE OVERLAY ================= */
+
+        .sidebar-overlay {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,.45);
+
+            backdrop-filter: blur(2px);
+
+            z-index: 90;
+
+            opacity: 0;
+
+            transition: opacity .3s ease;
+
+        }
+
+
+        .sidebar-overlay.show {
+
+            display: block;
+
+            opacity: 1;
+
+        }
+
+
+        /* ================= PAGE HEADER ================= */
+
+        .page-title-anim {
+
+            animation: fadeUp .7s cubic-bezier(.22,1,.36,1) both;
+
+        }
+
+
+        .page-sub-anim {
+
+            animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .12s both;
+
+        }
+
+
+        @keyframes fadeUp {
+
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+
+        }
+
+
+        /* ================= SCROLL REVEAL ================= */
+
+        .reveal-on-scroll {
+
+            opacity: 0;
+
+            transform: translateY(26px);
+
+            transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+
+        }
+
+
+        .reveal-on-scroll.is-visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+        /* ================= SETTINGS NAV ================= */
+
+        .settings-link {
+
+            transition: .25s ease;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .settings-link::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(17,92,185,.08);
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: transform .3s ease;
+
+            z-index: -1;
+
+            border-radius: inherit;
+
+        }
+
+
+        .settings-link:hover::before {
+
+            transform: scaleX(1);
+
+        }
+
+
+        .settings-link:hover {
+
+            transform: translateX(3px);
+
+        }
+
+
+        .settings-link .material-symbols-outlined {
+
+            transition: transform .3s ease;
+
+        }
+
+
+        .settings-link:hover .material-symbols-outlined {
+
+            transform: scale(1.15) rotate(-4deg);
+
+        }
+
+
+        /* ================= TOGGLE ================= */
+
+        .toggle-checkbox {
+
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+
+        }
+
+
+        .toggle-checkbox:checked {
+
+            right: 0;
+
+            border-color: #115cb9;
+
+            transform: rotate(360deg);
+
+        }
+
+
+        .toggle-label {
+
+            transition: background-color .3s ease;
+
+        }
+
+
+        .toggle-checkbox:checked + .toggle-label {
+
+            background-color: #115cb9;
+
+        }
+
+
+        /* ================= INPUTS ================= */
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+
+            transition: border-color .3s ease, box-shadow .3s ease, transform .2s ease;
+
+        }
+
+
+        input[type="text"]:focus,
+        input[type="email"]:not(:disabled):focus,
+        input[type="password"]:focus {
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* ================= NOTIFICATION CHECKBOXES ================= */
+
+        input[type="checkbox"].text-secondary {
+
+            transition: transform .2s ease;
+
+        }
+
+
+        input[type="checkbox"].text-secondary:hover {
+
+            transform: scale(1.15);
+
+        }
+
+
+        /* ================= THEME BUTTONS ================= */
+
+        .theme-btn {
+
+            transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, border-color .25s ease, background .25s ease;
+
+        }
+
+
+        .theme-btn:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 10px 22px rgba(0,10,30,.1);
+
+        }
+
+
+        .theme-btn:active {
+
+            transform: translateY(-1px) scale(.98);
+
+        }
+
+
+        .theme-btn .material-symbols-outlined {
+
+            transition: transform .3s ease;
+
+        }
+
+
+        .theme-btn:hover .material-symbols-outlined {
+
+            transform: scale(1.15) rotate(-6deg);
+
+        }
+
+
+        /* ================= BUTTON RIPPLE ================= */
+
+        button {
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .ripple-circle {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            background: rgba(17,92,185,.25);
+
+            transform: scale(0);
+
+            animation: rippleGrow .6s ease-out;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes rippleGrow {
+
+            to { transform: scale(3); opacity: 0; }
+
+        }
+
+
+        /* ================= SAVE / PRIMARY BUTTON SHIMMER ================= */
+
+        .shimmer-btn::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 45%;
+
+            height: 100%;
+
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,.35),
+                transparent
+            );
+
+            transform: translateX(-140%) skewX(-15deg);
+
+        }
+
+
+        .shimmer-btn:hover::after {
+
+            animation: shimmerSweep 1s ease forwards;
+
+        }
+
+
+        @keyframes shimmerSweep {
+
+            to { transform: translateX(240%) skewX(-15deg); }
+
+        }
+
+
+        .shimmer-btn {
+
+            transition: transform .2s ease, box-shadow .2s ease;
+
+        }
+
+
+        .shimmer-btn:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .shimmer-btn:active {
+
+            transform: translateY(0) scale(.97);
+
+        }
+
+
+        /* ================= AVATAR ================= */
+
+        .avatar-anim {
+
+            transition: transform .35s ease, box-shadow .35s ease;
+
+        }
+
+
+        .avatar-anim:hover {
+
+            transform: scale(1.06) rotate(2deg);
+
+            box-shadow: 0 8px 20px rgba(0,10,30,.18);
+
+        }
+
+
+        /* ================= SECTION TOP BAR PULSE ================= */
+
+        .top-accent-bar {
+
+            animation: barGlow 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes barGlow {
+
+            0%,100% { opacity: 1; }
+            50%      { opacity: .55; }
+
+        }
+
+
+        /* ================= FOOTER LINKS ================= */
+
+        footer a {
+
+            transition: color .25s ease, transform .2s ease;
+
+        }
+
+
+        footer a:hover {
+
+            transform: translateX(3px);
+
+        }
+
+
+        /* ================= MOBILE MENU ICON ================= */
+
+        #menuIcon {
+
+            transition: transform .3s ease;
+
+        }
+
+
+        /* ================= REDUCED MOTION ================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *, *::before, *::after {
+
+                animation-duration: .001ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: .001ms !important;
+
+                scroll-behavior: auto !important;
+
+            }
+
+            .reveal-on-scroll {
+
+                opacity: 1;
+
+                transform: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen">
+
+
+    <!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header
+        class="md:hidden sticky top-0 z-50 h-16 px-4 flex items-center justify-between bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+
+
+        <div class="flex items-center gap-3">
+
+            <div
+                class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+
+                <span class="material-symbols-outlined text-xl">
+
+                    account_balance
+
+                </span>
+
+            </div>
+
+
+            <h1 class="font-headline-sm text-headline-sm text-primary font-bold">
+
+                IIUI Portal
+
+            </h1>
+
+        </div>
+
+
+        <button
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation menu"
+            class="p-2 rounded-lg text-on-surface hover:bg-surface-container-high transition">
+
+            <span
+                id="menuIcon"
+                class="material-symbols-outlined">
+
+                menu
+
+            </span>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        id="sidebarOverlay"
+        class="sidebar-overlay">
+    </div>
+
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <!-- ================= LOGO ================= -->
+
+        <div class="logo-area">
+
+            <div class="brand-logo">IIU</div>
+
+
+            <div class="logo-text">
+
+                <strong>IBADAT</strong>
+
+                <small>INTERNATIONAL<br>UNIVERSITY<br>ISLAMABAD</small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= NAVIGATION ================= -->
+
+        <nav class="navigation">
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item">
+
+                <span class="material-symbols-outlined">
+
+                    home
+
+                </span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+
+            <a
+                href="course.html"
+                class="nav-item">
+
+                <span class="material-symbols-outlined">
+
+                    menu_book
+
+                </span>
+
+                <span>My Courses</span>
+
+            </a>
+
+
+
+            <a
+                href="attendence.html"
+                class="nav-item">
+
+                <span class="material-symbols-outlined">
+
+                    check_circle
+
+                </span>
+
+                <span>Attendance</span>
+
+            </a>
+
+
+
+            <a
+                href="finanial.html"
+                class="nav-item">
+
+                <span class="material-symbols-outlined">
+
+                    school
+
+                </span>
+
+                <span>Financials</span>
+
+            </a>
+
+
+
+            <a
+                href="library.html"
+                class="nav-item">
+
+                <span class="material-symbols-outlined">
+
+                    local_library
+
+                </span>
+
+                <span>Library</span>
+
+            </a>
+
+
+
+            <!-- ================= ACTIVE SETTINGS ================= -->
+
+            <a
+                href="setting.html"
+                class="nav-item active">
+
+                <span class="material-symbols-outlined">
+
+                    settings
+
+                </span>
+
+                <span>Settings</span>
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- ================= ACADEMIC PROGRESS ================= -->
+
+        <div class="progress-box">
+
+            <div class="progress-title">
+
+                Academic Progress
+
+            </div>
+
+
+            <div class="progress-circle">
+
+                <span
+                    data-count-to="78"
+                    data-suffix="%">78%</span>
+
+            </div>
+
+
+            <div class="progress-info">
+
+                Credits Completed
+
+                <strong
+                    data-count-to="93"
+                    data-suffix=" / 120">93 / 120</strong>
+
+            </div>
+
+
+            <button
+                class="progress-button">
+
+                View Progress
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main
+        class="md:ml-[212px] min-h-screen flex flex-col">
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <div
+            class="p-5 md:p-16 flex-1 max-w-[1280px] mx-auto w-full">
+
+
+            <!-- ================= PAGE HEADER ================= -->
+
+            <header class="mb-10 md:mb-12">
+
+                <h1
+                    class="page-title-anim font-display-lg-mobile md:font-display-lg text-primary mb-2">
+
+                    Account Settings
+
+                </h1>
+
+
+                <p
+                    class="page-sub-anim font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+
+                    Manage your profile, security, and preferences.
+
+                </p>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 SETTINGS LAYOUT
+            ================================================== -->
+
+            <div
+                class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+
+
+                <!-- =================================================
+                     SETTINGS NAVIGATION
+                ================================================== -->
+
+                <div
+                    class="lg:col-span-1">
+
+
+                    <div
+                        class="glass-panel reveal-on-scroll rounded-xl p-3 lg:sticky lg:top-8">
+
+
+                        <a
+                            href="#profile"
+                            class="settings-link block p-4 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md mb-2">
+
+                            <span class="flex items-center gap-3">
+
+                                <span class="material-symbols-outlined">
+
+                                    person
+
+                                </span>
+
+                                Profile Settings
+
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="#security"
+                            class="settings-link block p-4 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md mb-2">
+
+                            <span class="flex items-center gap-3">
+
+                                <span class="material-symbols-outlined">
+
+                                    lock
+
+                                </span>
+
+                                Security
+
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="#notifications"
+                            class="settings-link block p-4 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md mb-2">
+
+                            <span class="flex items-center gap-3">
+
+                                <span class="material-symbols-outlined">
+
+                                    notifications
+
+                                </span>
+
+                                Notifications
+
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="#appearance"
+                            class="settings-link block p-4 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md">
+
+                            <span class="flex items-center gap-3">
+
+                                <span class="material-symbols-outlined">
+
+                                    palette
+
+                                </span>
+
+                                Appearance
+
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SETTINGS CONTENT
+                ================================================== -->
+
+                <div
+                    class="lg:col-span-2 space-y-8">
+
+
+                    <!-- =================================================
+                         PROFILE SETTINGS
+                    ================================================== -->
+
+                    <section
+                        id="profile"
+                        class="glass-panel reveal-on-scroll p-6 md:p-8 rounded-xl relative overflow-hidden">
+
+
+                        <div
+                            class="top-accent-bar absolute top-0 left-0 w-full h-1 bg-secondary">
+                        </div>
+
+
+                        <h2
+                            class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+
+                                person
+
+                            </span>
+
+                            Profile Settings
+
+                        </h2>
+
+
+
+                        <div
+                            class="flex flex-col md:flex-row gap-8 items-start mb-8 pb-8 border-b border-outline-variant">
+
+
+                            <!-- PROFILE PHOTO -->
+
+                            <div
+                                class="flex-shrink-0 flex flex-col items-center gap-4 w-full md:w-auto">
+
+
+                                <img
+                                    alt="Student Avatar"
+                                    class="avatar-anim w-24 h-24 rounded-full object-cover shadow-sm"
+                                    src="image.png">
+
+
+                                <button
+                                    type="button"
+                                    class="px-4 py-2 bg-transparent border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors">
+
+                                    Change Photo
+
+                                </button>
+
+                            </div>
+
+
+
+                            <!-- PROFILE FIELDS -->
+
+                            <div
+                                class="flex-grow w-full space-y-5">
+
+
+                                <div>
+
+                                    <label
+                                        class="block font-label-md text-label-md text-on-surface-variant mb-1">
+
+                                        Full Name
+
+                                    </label>
+
+
+                                    <input
+                                        type="text"
+                                        value="Hasnian khan"
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors">
+
+                                </div>
+
+
+
+                                <div>
+
+                                    <label
+                                        class="block font-label-md text-label-md text-on-surface-variant mb-1">
+
+                                        Student ID
+
+                                    </label>
+
+
+                                    <input
+                                        type="text"
+                                        value="F21-BSE-045"
+                                        disabled
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant/50 px-0 py-2 font-body-md text-body-md text-on-surface-variant cursor-not-allowed">
+
+                                </div>
+
+
+
+                                <div>
+
+                                    <label
+                                        class="block font-label-md text-label-md text-on-surface-variant mb-1">
+
+                                        University Email
+
+                                    </label>
+
+
+                                    <input
+                                        type="email"
+                                        value="Hasnain.khan@iiui.edu.pk"
+                                        disabled
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant/50 px-0 py-2 font-body-md text-body-md text-on-surface-variant cursor-not-allowed">
+
+                                </div>
+
+
+
+                                <div>
+
+                                    <label
+                                        class="block font-label-md text-label-md text-on-surface-variant mb-1">
+
+                                        Personal Email
+
+                                    </label>
+
+
+                                    <input
+                                        type="email"
+                                        value="Hasnain.k.personal@gmail.com"
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors">
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="flex justify-end">
+
+                            <button
+                                type="button"
+                                class="shimmer-btn px-6 py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-sm">
+
+                                Save Changes
+
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         SECURITY
+                    ================================================== -->
+
+                    <section
+                        id="security"
+                        class="reveal-on-scroll bg-white rounded-xl border border-outline-variant/50 shadow-sm p-6 md:p-8">
+
+
+                        <h2
+                            class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+
+                                lock
+
+                            </span>
+
+                            Security
+
+                        </h2>
+
+
+                        <div class="space-y-8">
+
+
+                            <!-- CHANGE PASSWORD -->
+
+                            <div>
+
+                                <h3
+                                    class="font-label-md text-label-md text-on-surface mb-4">
+
+                                    Change Password
+
+                                </h3>
+
+
+                                <div class="space-y-4 max-w-md">
+
+
+                                    <input
+                                        type="password"
+                                        placeholder="Current Password"
+                                        class="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface transition-all">
+
+
+                                    <input
+                                        type="password"
+                                        placeholder="New Password"
+                                        class="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface transition-all">
+
+
+                                    <input
+                                        type="password"
+                                        placeholder="Confirm New Password"
+                                        class="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface transition-all">
+
+
+                                    <button
+                                        type="button"
+                                        class="px-5 py-2.5 bg-transparent border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors">
+
+                                        Update Password
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- 2FA -->
+
+                            <div
+                                class="pt-8 border-t border-outline-variant flex items-center justify-between gap-5">
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-label-md text-label-md text-on-surface mb-1">
+
+                                        Two-Factor Authentication (2FA)
+
+                                    </h3>
+
+
+                                    <p
+                                        class="font-caption text-caption text-on-surface-variant">
+
+                                        Add an extra layer of security to your account.
+
+                                    </p>
+
+                                </div>
+
+
+                                <div
+                                    class="relative inline-block w-12 h-6 flex-shrink-0">
+
+
+                                    <input
+                                        id="toggle-2fa"
+                                        type="checkbox"
+                                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant top-0 left-0 z-10 transition-all duration-300">
+
+
+                                    <label
+                                        for="toggle-2fa"
+                                        class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-high cursor-pointer transition-colors duration-300">
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         NOTIFICATIONS
+                    ================================================== -->
+
+                    <section
+                        id="notifications"
+                        class="glass-panel reveal-on-scroll p-6 md:p-8 rounded-xl">
+
+
+                        <h2
+                            class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+
+                                notifications
+
+                            </span>
+
+                            Notifications
+
+                        </h2>
+
+
+                        <div class="space-y-5">
+
+
+                            <div
+                                class="flex items-center justify-between gap-5 pb-5 border-b border-outline-variant">
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-label-md text-label-md text-on-surface mb-1">
+
+                                        Email Notifications
+
+                                    </h3>
+
+
+                                    <p
+                                        class="font-caption text-caption text-on-surface-variant">
+
+                                        Receive important university updates by email.
+
+                                    </p>
+
+                                </div>
+
+
+                                <input
+                                    type="checkbox"
+                                    checked
+                                    class="w-5 h-5 text-secondary rounded border-outline-variant focus:ring-secondary">
+
+                            </div>
+
+
+
+                            <div
+                                class="flex items-center justify-between gap-5 pb-5 border-b border-outline-variant">
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-label-md text-label-md text-on-surface mb-1">
+
+                                        Assignment Notifications
+
+                                    </h3>
+
+
+                                    <p
+                                        class="font-caption text-caption text-on-surface-variant">
+
+                                        Get notified when new assignments are posted.
+
+                                    </p>
+
+                                </div>
+
+
+                                <input
+                                    type="checkbox"
+                                    checked
+                                    class="w-5 h-5 text-secondary rounded border-outline-variant focus:ring-secondary">
+
+                            </div>
+
+
+
+                            <div
+                                class="flex items-center justify-between gap-5">
+
+
+                                <div>
+
+                                    <h3
+                                        class="font-label-md text-label-md text-on-surface mb-1">
+
+                                        Fee Reminders
+
+                                    </h3>
+
+
+                                    <p
+                                        class="font-caption text-caption text-on-surface-variant">
+
+                                        Receive reminders about upcoming payments.
+
+                                    </p>
+
+                                </div>
+
+
+                                <input
+                                    type="checkbox"
+                                    checked
+                                    class="w-5 h-5 text-secondary rounded border-outline-variant focus:ring-secondary">
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         APPEARANCE
+                    ================================================== -->
+
+                    <section
+                        id="appearance"
+                        class="reveal-on-scroll bg-white rounded-xl border border-outline-variant/50 shadow-sm p-6 md:p-8">
+
+
+                        <h2
+                            class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+
+                                palette
+
+                            </span>
+
+                            Appearance
+
+                        </h2>
+
+
+                        <div class="space-y-6">
+
+
+                            <div>
+
+                                <h3
+                                    class="font-label-md text-label-md text-on-surface mb-2">
+
+                                    Theme
+
+                                </h3>
+
+
+                                <p
+                                    class="font-caption text-caption text-on-surface-variant mb-4">
+
+                                    Choose how the portal looks on your device.
+
+                                </p>
+
+
+                                <div
+                                    class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+
+                                    <button
+                                        type="button"
+                                        class="theme-btn p-4 rounded-lg border-2 border-secondary bg-secondary/5 text-secondary flex flex-col items-center gap-2">
+
+                                        <span class="material-symbols-outlined">
+
+                                            light_mode
+
+                                        </span>
+
+                                        <span class="font-label-md text-label-md">
+
+                                            Light
+
+                                        </span>
+
+                                    </button>
+
+
+                                    <button
+                                        type="button"
+                                        class="theme-btn p-4 rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition">
+
+                                        <span class="material-symbols-outlined">
+
+                                            dark_mode
+
+                                        </span>
+
+                                        <span class="font-label-md text-label-md">
+
+                                            Dark
+
+                                        </span>
+
+                                    </button>
+
+
+                                    <button
+                                        type="button"
+                                        class="theme-btn p-4 rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition">
+
+                                        <span class="material-symbols-outlined">
+
+                                            settings_suggest
+
+                                        </span>
+
+                                        <span class="font-label-md text-label-md">
+
+                                            System
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
+
+        <footer
+            class="bg-primary text-on-primary w-full px-5 md:px-16 py-12 mt-12">
+
+
+            <div class="max-w-[1280px] mx-auto">
+
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+
+                    <!-- BRAND -->
+
+                    <div>
+
+                        <div
+                            class="font-headline-sm text-headline-sm text-on-primary mb-4">
+
+                            IIUI Portal
+
+                        </div>
+
+
+                        <p
+                            class="text-on-primary-container font-body-md">
+
+                            Your academic portal for managing university
+                            activities.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- COLUMN 2 -->
+
+                    <div>
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md mb-3 hover:text-secondary-fixed-dim">
+
+                            Academic Calendar
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md hover:text-secondary-fixed-dim">
+
+                            Accreditation
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- COLUMN 3 -->
+
+                    <div>
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md mb-3 hover:text-secondary-fixed-dim">
+
+                            Career Services
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md hover:text-secondary-fixed-dim">
+
+                            Student Support
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- COLUMN 4 -->
+
+                    <div>
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md mb-3 hover:text-secondary-fixed-dim">
+
+                            Privacy Policy
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="block text-on-primary-container font-label-md hover:text-secondary-fixed-dim">
+
+                            Contact Us
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COPYRIGHT -->
+
+                <div
+                    class="mt-10 pt-8 border-t border-on-primary/20">
+
+
+                    <p
+                        class="font-body-md text-body-md text-on-primary-container">
+
+                        © 2024 Ibadat International University Islamabad.
+                        All Rights Reserved.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MOBILE MENU JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+        const menuIcon =
+            document.getElementById("menuIcon");
+
+        const sidebarOverlay =
+            document.getElementById("sidebarOverlay");
+
+
+        /* ================================
+           OPEN / CLOSE SIDEBAR
+        ================================= */
+
+        function toggleSidebar() {
+
+            sidebar.classList.toggle("open");
+
+            sidebarOverlay.classList.toggle("show");
+
+
+            menuIcon.textContent =
+                sidebar.classList.contains("open")
+                    ? "close"
+                    : "menu";
+
+        }
+
+
+        /* ================================
+           MENU BUTTON
+        ================================= */
+
+        menuButton.addEventListener(
+            "click",
+            toggleSidebar
+        );
+
+
+        /* ================================
+           OVERLAY CLOSE
+        ================================= */
+
+        sidebarOverlay.addEventListener(
+            "click",
+            toggleSidebar
+        );
+
+
+        /* ================================
+           CLOSE AFTER NAVIGATION
+        ================================= */
+
+        document
+            .querySelectorAll(".nav-item")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        if (window.innerWidth < 768) {
+
+                            sidebar.classList.remove("open");
+
+                            sidebarOverlay.classList.remove("show");
+
+                            menuIcon.textContent = "menu";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* ================================
+           HANDLE WINDOW RESIZE
+        ================================= */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (window.innerWidth >= 768) {
+
+                    sidebar.classList.remove("open");
+
+                    sidebarOverlay.classList.remove("show");
+
+                    menuIcon.textContent = "menu";
+
+                }
+
+            }
+        );
+
+
+        /* ================================
+           BUTTON RIPPLE EFFECT
+        ================================= */
+
+        document
+            .querySelectorAll("button")
+            .forEach(btn => {
+
+                btn.addEventListener("click", function (e) {
+
+                    const r = this.getBoundingClientRect();
+                    const size = Math.max(r.width, r.height);
+                    const circle = document.createElement("span");
+
+                    circle.className = "ripple-circle";
+                    circle.style.width = circle.style.height = size + "px";
+                    circle.style.left = (e.clientX - r.left - size / 2) + "px";
+                    circle.style.top = (e.clientY - r.top - size / 2) + "px";
+
+                    this.appendChild(circle);
+                    setTimeout(() => circle.remove(), 650);
+
+                });
+
+            });
+
+
+        /* ================================
+           THEME BUTTON SELECTION STATE
+        ================================= */
+
+        document
+            .querySelectorAll(".theme-btn")
+            .forEach(btn => {
+
+                btn.addEventListener("click", function () {
+
+                    document.querySelectorAll(".theme-btn").forEach(b => {
+
+                        b.classList.remove(
+                            "border-2", "border-secondary",
+                            "bg-secondary/5", "text-secondary"
+                        );
+
+                        b.classList.add(
+                            "border", "border-outline-variant",
+                            "text-on-surface-variant"
+                        );
+
+                    });
+
+                    this.classList.remove(
+                        "border", "border-outline-variant",
+                        "text-on-surface-variant"
+                    );
+
+                    this.classList.add(
+                        "border-2", "border-secondary",
+                        "bg-secondary/5", "text-secondary"
+                    );
+
+                });
+
+            });
+
+
+        /* ================================
+           SETTINGS NAV ACTIVE STATE
+        ================================= */
+
+        document
+            .querySelectorAll(".settings-link")
+            .forEach(link => {
+
+                link.addEventListener("click", function () {
+
+                    document.querySelectorAll(".settings-link").forEach(l => {
+
+                        l.classList.remove(
+                            "bg-secondary-container",
+                            "text-on-secondary-container"
+                        );
+
+                        l.classList.add("text-on-surface-variant");
+
+                    });
+
+                    this.classList.remove("text-on-surface-variant");
+
+                    this.classList.add(
+                        "bg-secondary-container",
+                        "text-on-secondary-container"
+                    );
+
+                });
+
+            });
+
+
+        /* ================================
+           SCROLL-TRIGGERED REVEAL
+        ================================= */
+
+        const prefersReducedMotion =
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const revealEls =
+            document.querySelectorAll(".reveal-on-scroll");
+
+        if (prefersReducedMotion) {
+
+            revealEls.forEach(el => el.classList.add("is-visible"));
+
+        } else {
+
+            const revealObserver = new IntersectionObserver((entries) => {
+
+                entries.forEach((entry, i) => {
+
+                    if (entry.isIntersecting) {
+
+                        setTimeout(() => {
+
+                            entry.target.classList.add("is-visible");
+
+                        }, i * 90);
+
+                        revealObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, { threshold: .15, rootMargin: "0px 0px -40px 0px" });
+
+            revealEls.forEach(el => revealObserver.observe(el));
+
+        }
+
+
+        /* ================================
+           ANIMATED COUNT-UP FOR PROGRESS FIGURES
+        ================================= */
+
+        function animateCountEl(el) {
+
+            const target = parseFloat(el.dataset.countTo);
+            const suffix = el.dataset.suffix || "";
+
+            if (isNaN(target) || prefersReducedMotion) return;
+
+            const duration = 1100;
+            const start = performance.now();
+
+            function tick(now) {
+
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+
+                el.textContent = Math.round(target * eased) + suffix;
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(tick);
+
+                } else {
+
+                    el.textContent = Math.round(target) + suffix;
+
+                }
+
+            }
+
+            requestAnimationFrame(tick);
+
+        }
+
+        const countEls =
+            document.querySelectorAll("[data-count-to]");
+
+        if (prefersReducedMotion) {
+
+            countEls.forEach(el => {
+                el.textContent =
+                    Math.round(parseFloat(el.dataset.countTo)) +
+                    (el.dataset.suffix || "");
+            });
+
+        } else {
+
+            const countObserver = new IntersectionObserver((entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        animateCountEl(entry.target);
+
+                        countObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, { threshold: .4 });
+
+            countEls.forEach(el => countObserver.observe(el));
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
